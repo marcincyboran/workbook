@@ -1,29 +1,109 @@
 .side-nav {
     display: flex;
-    min-height: 30rem;
 
+    &__switcher {
+        display: none;
+    }
 
-    &__item {
+    &__list-box {
         flex: 1;
+        position: relative;
         background-color: var(--color-white);
-        padding: 2rem;
+        padding-bottom: 5rem;
+        box-shadow: var(--shadow-small-middle);
 
         &:not(:last-of-type) {
             margin-right: var(--default-horizontal-gap);
         }
-        // flex: 0 1 30%;
+    }
 
-        &--categories {
+    &__list-label {
+        font-size: 2rem;
+        line-height: 1;
+        font-weight: 400;
+        color: var(--color-grey-dark-3);
+        text-align: center;
+        cursor: pointer;
+        padding: 1.5rem 2rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-top: var(--border-light);
+        transition: all .3s;
 
-        }
-
-        &--trends {
-
-        }
-
-        &--cities {
-
+        &:hover {
+            color: var(--color-grey-dark-2);
+            letter-spacing: 1px;
         }
     }
 
+    &__list {
+        list-style: none;
+        height: 20rem;
+        overflow: hidden;
+        transition: all .3s;
+        padding: 0 2rem;
+
+        &:hover {
+            overflow: auto;
+        }
+    }
+
+    &__item {
+        position: relative;
+        backface-visibility: hidden;
+        
+        &:not(:last-child) {
+            border-bottom: var(--border-lighter);
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            background-color: var(--color-primary);
+            top: 0;
+            left: -2rem;
+            width: .4rem;
+            height: 100%;
+            opacity: 0;
+            z-index: 5;
+            transition: opacity .6s;
+        }
+    }
+
+    &__item:hover::before {
+        opacity: 1;
+    } 
+
+    &__link {
+        display: block;
+        transition: all .3s;
+        padding: 1rem 0;
+        position: relative;
+        z-index: 10;
+
+        &:link,
+        &:visited {
+            text-decoration: none;
+            color: var(--color-grey-dark-3);
+            font-size: 1.8rem;
+            line-height: 1;
+            font-weight: 300;
+        }
+
+        &:hover,
+        &:active {
+            color: var(--color-grey-dark-1);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+    }
+
+    &__switcher:checked ~ &__list-box &__list {
+        height: 60rem;
+    }
+
+    // &__switcher:checked ~ &__list-box &__list-label {}
 }

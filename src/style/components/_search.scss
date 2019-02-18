@@ -4,10 +4,12 @@
     border-radius: 3rem;
     width: 60%;
     margin: 0 auto;
+    box-shadow: var(--shadow-medium-dark);
     display: flex;
 
+
     &__input {
-        background-color: var(--color-white);
+        background-color: var(--color-grey-light-1);
         flex-basis: 40%;
         padding: 1rem 1.75rem;
         color: var(--color-grey-dark-2);
@@ -42,8 +44,8 @@
     }
 
     &__pipe {       
-        border-top: .8rem solid var(--color-white);
-        border-bottom: .8rem solid var(--color-white);
+        border-top: .8rem solid var(--color-grey-light-1);
+        border-bottom: .8rem solid var(--color-grey-light-1);
         background-color: var(--color-grey-light-4);
         width: 1px;
     }

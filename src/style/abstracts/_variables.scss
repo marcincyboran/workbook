@@ -11,18 +11,25 @@
     --color-grey-dark-1: #333;
     --color-grey-dark-2: #777;
     --color-grey-dark-3: #999;
+    --color-grey-dark-4: #aaa;
 
     --color-white: #fff;
     --color-dark: #000;
 
     --shadow-big-dark: 0 2rem 6rem rgba(0,0,0,.25);
+    --shadow-big-middle: 0 2rem 6rem rgba(0,0,0,.15);
     --shadow-big-light: 0 2rem 6rem rgba(0,0,0,.05);
+
     --shadow-medium-dark: 0 1rem 3rem rgba(0,0,0,.25);
+    --shadow-medium-middle: 0 1rem 3rem rgba(0,0,0,.15);
     --shadow-medium-light: 0 1rem 3rem rgba(0,0,0,.05);
+
     --shadow-small-dark: 0 .5rem 1.5rem rgba(0,0,0,.25);
+    --shadow-small-middle: 0 .5rem 1.5rem rgba(0,0,0,.15);
     --shadow-small-light: 0 .5rem 1.5rem rgba(0,0,0,.05);
 
     --border-light: 2px solid var(--color-grey-light-3);
+    --border-lighter: 1px solid var(--color-grey-light-3);
     --border-active: 2px solid var(--color-primary);
 
     --default-bar-height: 7rem;

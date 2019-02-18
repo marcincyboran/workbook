@@ -9,6 +9,7 @@
 html {
     font-size: 62.5%;
     box-sizing: border-box;
+    text-rendering: optimizeLegibility;
 }
 
 body {
@@ -16,6 +17,13 @@ body {
     font-weight: 400;
     line-height: 1.6;
     color: var(--color-grey-dark-2);
-    min-height: 100vh;
+    min-height: 200vh;
     background-image: linear-gradient(to right bottom, var(--color-grey-light-1), var(--color-grey-light-2));
+}
+
+input {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    outline: none;
+    border: none;
 }

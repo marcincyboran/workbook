@@ -3,6 +3,8 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+console.log(path.resolve(__dirname, "/assets/imgs"));
+
 module.exports = {
     entry: ['babel-polyfill', './src/js/index.js' ],
     output: {
@@ -34,22 +36,49 @@ module.exports = {
             {
                 test: /\.js$/,
                 include: [
-                    path.resolve(__dirname, "src")
+                    path.resolve(__dirname, "src/js")
                 ],
                 use: {
                     loader: 'babel-loader'
                 }
             },
             {
-                test:/\.(s*)css$/,
+                test: /\.(png|svg|jpg|gif)$/,
                 include: [
-                    path.resolve(__dirname, "src")
+                    path.resolve(__dirname, "src/assets")
                 ],
                 use: [
-                    MiniCssExtractPlugin.loader,
-                    "css-loader",
-                    "sass-loader"
+                    {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'assets/imgs',
+                      },
+                    }
                 ]
+            },
+            {
+                test:/\.(s*)css$/,
+                include: [
+                    path.resolve(__dirname, "src/style")
+                ],
+                use: [
+                    { 
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: '../'
+                        }
+                    },
+                    { loader: "css-loader" },
+                    { loader: "resolve-url-loader" },
+                    { 
+                        loader: "sass-loader",
+                        options: {
+                            sourceMap: true,
+                            sourceMapContents: false
+                        }
+                    },
+                ]                    
             }
         ]
     }

@@ -1,0 +1,29 @@
+.side-nav {
+    display: flex;
+    min-height: 30rem;
+
+
+    &__item {
+        flex: 1;
+        background-color: var(--color-white);
+        padding: 2rem;
+
+        &:not(:last-of-type) {
+            margin-right: var(--default-horizontal-gap);
+        }
+        // flex: 0 1 30%;
+
+        &--categories {
+
+        }
+
+        &--trends {
+
+        }
+
+        &--cities {
+
+        }
+    }
+
+}

@@ -10,36 +10,73 @@
 <body>
     <header class="header">
 
-        <section class="container">
+        <section class="header__top">
 
-            <nav class="top-bar">
-                
-                <div class="logo">
-                    <!-- make it a link -->
-                    <p class="logo__text">Work<span class="logo__text logo__text--red">.</span>Book</p>
-                </div>
+            <div class="container">
     
-                <ul class="top-nav">
-                    <li class="top-nav__item">
-                        <a href="#1" class="top-nav__link">Link1</a>
-                    </li>
-                    <li class="top-nav__item">
-                        <a href="#2" class="top-nav__link">Link2</a>
-                    </li>
-                </ul>
+                <nav class="top-bar">
+                    
+                    <div class="logo">
+                        <!-- make it a link -->
+                        <p class="logo__text">Work<span class="logo__text logo__text--primary">.</span>Book</p>
+                    </div>
+        
+                    <ul class="top-nav">
+                        <li class="top-nav__item">
+                            <a href="#1" class="top-nav__link">Link1</a>
+                        </li>
+                        <li class="top-nav__item">
+                            <a href="#2" class="top-nav__link">Link2</a>
+                        </li>
+                    </ul>
+    
+                </nav>
 
-            </nav>
+            </div>
 
         </section>
 
-        <section class="search-box">
-            <h1>Nagłówek h1</h1>
-            <form action="#">
-                <input type="text" name="search" id="search-input">
-            </form>
+        <section class="header__bottom">
+
+            <div class="container">
+
+                <h1 class="header__heading">
+                    <span class="header__heading-text">Tired of unprofessional renovations ?</span>
+                    <span class="header__heading-text">Find & book your expert ! </span>
+                </h1>
+
+                <form action="#" class="search">
+                    <input type="text" class="search__input search__input-query" name="search" id="search-query">
+                    <div class="search__pipe">&nbsp;</div>
+                    <input type="text" class="search__input search__input-location" name="search" id="search-location">
+                    <input type="submit" class="search__submit">
+                </form>
+
+            </div>
+
         </section>
 
 
     </header>
+
+    <div class="container">
+
+        <section class="content">
+            
+            <aside class="side-nav">
+                <section class="side-nav__item side-nav__item--categories">
+
+                </section>
+                <section class="side-nav__item side-nav__item--trends">
+                    
+                </section>
+                <section class="side-nav__item side-nav__item--cities">
+                
+                </section>
+            </aside>
+
+        </section>
+
+    </div>
 </body>
 </html>

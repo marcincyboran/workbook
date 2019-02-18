@@ -13,16 +13,38 @@
     --color-grey-dark-3: #999;
 
     --color-white: #fff;
+    --color-dark: #000;
 
-    --shadow-big-dark: 0 2rem 6rem rgba(0,0,0,.3);
+    --shadow-big-dark: 0 2rem 6rem rgba(0,0,0,.25);
+    --shadow-big-light: 0 2rem 6rem rgba(0,0,0,.05);
     --shadow-medium-dark: 0 1rem 3rem rgba(0,0,0,.25);
     --shadow-medium-light: 0 1rem 3rem rgba(0,0,0,.05);
+    --shadow-small-dark: 0 .5rem 1.5rem rgba(0,0,0,.25);
+    --shadow-small-light: 0 .5rem 1.5rem rgba(0,0,0,.05);
 
-    --border-light: 1px solid var(--color-grey-light-3);
+    --border-light: 2px solid var(--color-grey-light-3);
     --border-active: 2px solid var(--color-primary);
 
     --default-bar-height: 7rem;
+    --default-vertical-gap: 4rem;
+    --default-horizontal-gap: 2rem;
 }
+
+$color-primary: #eb2f64;
+$color-primary-light: #FF3366;
+$color-primary-dark: #BA265D;
+
+$color-grey-light-1: #faf9f9;
+$color-grey-light-3: #f0eeee;
+$color-grey-light-2: #f4f2f2;
+$color-grey-light-4: #ccc;
+
+$color-grey-dark-1: #333;
+$color-grey-dark-2: #777;
+$color-grey-dark-3: #999;
+
+$color-white: #fff;
+$color-dark: #000;
 
 $bp-largest: 75em; //1200/16
 $bp-large: 70em; //1120/16

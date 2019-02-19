@@ -3,11 +3,11 @@ import test from './views/view';
 import '../style/main.scss';
 
 function component() {
-    let element = document.createElement('div');
+    // let element = document.createElement('div');
 
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+    // element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
-    return element;
+    // return element;
 }
 
 document.body.appendChild(component());

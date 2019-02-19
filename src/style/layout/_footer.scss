@@ -1,0 +1,71 @@
+.footer {
+    margin-top: calc(2 * var(--default-vertical-gap));
+    background-color: var(--color-grey-light-4);
+    
+    &-inner {
+        padding: var(--default-vertical-gap) 0;
+        min-height: calc(2 * var(--default-bar-height));
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    &-inner > * {
+        flex: 1;
+    }
+
+    &__copyrights > * {
+        display: block;
+        color: var(--color-grey-light-1);
+        font-size: 1.4rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    &__logo {
+        text-align: center;
+    }
+
+    &__socials {
+        text-align: right;
+        font-size: 0;
+        
+        &-item {
+            font-size: 1.4rem;
+            color: var(--color-grey-dark-1);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background-color: var(--color-white);
+            box-shadow: var(--shadow-small-middle);
+            border-bottom: 2px solid currentColor;
+            border-radius: var(--default-border-radius);
+            transform: skewX(-15deg);
+            transition: background-color .6s;
+            
+            & > * {
+                transform: skewX(15deg);
+            }
+
+            &:hover {
+                color: var(--color-white);
+                border-bottom: 2px solid transparent;
+            }
+
+            &--facebook { color: var(--color-facebook);}
+            &--twitter { color: var(--color-twitter);}
+            &--youtube { color: var(--color-youtube);}
+            &--linkedin { color: var(--color-linkedin);}
+            &--facebook:hover { background-color: var(--color-facebook);}
+            &--twitter:hover { background-color: var(--color-twitter);}
+            &--youtube:hover { background-color: var(--color-youtube);}
+            &--linkedin:hover {background-color: var(--color-linkedin);}
+
+            &:not(:last-child) {
+                margin-right: var(--small-horizontal-gap);
+            }
+        }
+    }
+}

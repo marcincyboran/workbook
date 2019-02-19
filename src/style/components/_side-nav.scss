@@ -6,11 +6,14 @@
     }
 
     &__list-box {
+
         flex: 1;
         position: relative;
         background-color: var(--color-white);
+        padding-top: .5rem;
         padding-bottom: 5rem;
         box-shadow: var(--shadow-small-middle);
+        border-radius: var(--default-border-radius);
 
         &:not(:last-of-type) {
             margin-right: var(--default-horizontal-gap);
@@ -18,13 +21,13 @@
     }
 
     &__list-label {
-        font-size: 2rem;
+        font-size: 1.6rem;
         line-height: 1;
         font-weight: 400;
         color: var(--color-grey-dark-3);
         text-align: center;
         cursor: pointer;
-        padding: 1.5rem 2rem;
+        padding: 1.25rem 2rem;
         position: absolute;
         bottom: 0;
         left: 0;
@@ -70,11 +73,16 @@
             opacity: 0;
             z-index: 5;
             transition: opacity .6s;
+            // top: 50%;
+            // height: 0;
+            // transform: translateY(-50%);
+            // border-radius: 2px;
         }
     }
 
     &__item:hover::before {
         opacity: 1;
+        // height:100%;
     } 
 
     &__link {

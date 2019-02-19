@@ -1,0 +1,23 @@
+.logo {
+    &__text {
+        // Add gradient to text
+        color: var(--color-grey-light-4);
+        font-size: 3rem;
+        font-weight: 300;
+        letter-spacing:-1px;
+        line-height: 1;
+
+        &--primary {
+            color: var(--color-primary);
+            font-weight: 400;
+        }
+    }
+
+    &__text--white {
+        color: var(--color-white);
+    }
+
+    &__text--large {
+        font-size: 5rem;
+    }    
+}

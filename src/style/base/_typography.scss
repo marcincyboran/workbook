@@ -1,0 +1,33 @@
+.heading-secondary {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-grey-dark-2);
+}
+
+.tag {
+    display: inline-block;
+    font-size: 1.1rem;
+    padding: .4em .8rem;
+    margin-bottom: .4rem;
+    background-color: var(--color-grey-light-1);
+    border-radius: .4rem;
+    transition: all .3s;
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--color-grey-light-3);
+        color: var(--color-grey-dark-1);
+    }
+
+    &:not(:last-of-type) {
+        margin-right: .6rem;
+    }
+}
+
+.paragraph {
+    font-size: 1.2rem;
+}
+
+.text-bold {
+    font-weight: 600;
+}

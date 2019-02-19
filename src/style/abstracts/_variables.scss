@@ -16,16 +16,21 @@
     --color-white: #fff;
     --color-dark: #000;
 
+    --color-facebook: #3b5999;
+    --color-twitter: #55acee;
+    --color-youtube: #cd201f;
+    --color-linkedin: #0077B5;
+
     --shadow-big-dark: 0 2rem 6rem rgba(0,0,0,.25);
-    --shadow-big-middle: 0 2rem 6rem rgba(0,0,0,.15);
+    --shadow-big-middle: 0 2rem 6rem rgba(0,0,0,.1);
     --shadow-big-light: 0 2rem 6rem rgba(0,0,0,.05);
 
     --shadow-medium-dark: 0 1rem 3rem rgba(0,0,0,.25);
-    --shadow-medium-middle: 0 1rem 3rem rgba(0,0,0,.15);
+    --shadow-medium-middle: 0 1rem 3rem rgba(0,0,0,.1);
     --shadow-medium-light: 0 1rem 3rem rgba(0,0,0,.05);
 
     --shadow-small-dark: 0 .5rem 1.5rem rgba(0,0,0,.25);
-    --shadow-small-middle: 0 .5rem 1.5rem rgba(0,0,0,.15);
+    --shadow-small-middle: 0 .5rem 1.5rem rgba(0,0,0,.1);
     --shadow-small-light: 0 .5rem 1.5rem rgba(0,0,0,.05);
 
     --border-light: 2px solid var(--color-grey-light-3);
@@ -34,7 +39,11 @@
 
     --default-bar-height: 7rem;
     --default-vertical-gap: 4rem;
+    --small-vertical-gap: 2rem;
     --default-horizontal-gap: 2rem;
+    --small-horizontal-gap: .4rem;
+
+    --default-border-radius: .4rem;
 }
 
 $color-primary: #eb2f64;

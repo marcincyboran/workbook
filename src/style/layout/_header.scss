@@ -55,19 +55,3 @@
     align-items: center;
     height: var(--default-bar-height);
 }
-
-.logo {
-
-    &__text {
-        // Add gradient to text
-        color: var(--color-grey-light-4);
-        font-size: 3rem;
-        font-weight: 300;
-        letter-spacing: -1px;
-
-        &--primary {
-            color: var(--color-primary);
-            font-weight: 400;
-        }
-    }
-}

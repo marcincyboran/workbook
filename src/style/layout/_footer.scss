@@ -29,6 +29,11 @@
     &__socials {
         text-align: right;
         font-size: 0;
+
+        &-icon {
+            fill: currentColor;
+            width: 50%;
+        }
         
         &-item {
             font-size: 1.4rem;
@@ -46,25 +51,24 @@
             transform: skewX(-15deg) scaleY(1) translateY(0);
             transition: all .6s;
             
+            &--noactive {
+                color: var(--color-grey-light-4) !important;
+            }
+
             & > * {
                 transform: skewX(15deg);
             }
 
-            &:hover {
-                // color: var(--color-white);
-                // border-bottom: 2px solid transparent;
+
+
+            &:not(&--noactive):hover {
                 transform: skewX(-15deg) scale(1.1) translateY(-1rem);
-                // height: 6rem;
             }
 
             &--facebook { color: var(--color-facebook);}
             &--twitter { color: var(--color-twitter);}
             &--youtube { color: var(--color-youtube);}
             &--linkedin { color: var(--color-linkedin);}
-            // &--facebook:hover { background-color: var(--color-facebook);}
-            // &--twitter:hover { background-color: var(--color-twitter);}
-            // &--youtube:hover { background-color: var(--color-youtube);}
-            // &--linkedin:hover { background-color: var(--color-linkedin);}
 
             &:not(:last-child) {
                 margin-right: var(--small-horizontal-gap);

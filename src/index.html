@@ -23,10 +23,10 @@
         
                     <ul class="top-nav">
                         <li class="top-nav__item">
-                            <a href="#1" class="top-nav__link">Link1</a>
+                            <a href="test" class="top-nav__link">test</a>
                         </li>
                         <li class="top-nav__item">
-                            <a href="#2" class="top-nav__link">Link2</a>
+                            <a href="/" class="top-nav__link">home</a>
                         </li>
                     </ul>
     
@@ -49,21 +49,34 @@
                     <input type="text" class="search__input search__input-query" name="search" id="search-query">
                     <div class="search__pipe">&nbsp;</div>
                     <input type="text" class="search__input search__input-location" name="search" id="search-location">
-                    <input type="submit" value="Search" class="search__submit">
+                    <button type="submit" class="search__submit">
+                        <svg class="search__submit-icon">
+                            <use xlink:href="./assets/svgs/sprite.svg#icon-magnifying-glass"></use>
+                        </svg>
+                        <span>Szukaj</span>
+                    </button>
                 </form>
 
             </div>
 
         </section>
 
-
     </header>
 
     <div class="container">
 
-        <main class="content">
+        <main class="content" id="js-content">
             
-            <aside class="side-nav">
+            <section class="login">
+                Test login content
+                <div class="test">test</div>
+                <div class="test">test</div>
+                <div class="test">test</div>
+                <div class="test">test</div>
+                <div class="test">test</div>
+            </section>
+
+            <!-- <aside class="side-nav">
                 
                 <input class="side-nav__switcher" type="checkbox" id="toggle-list">
                 
@@ -163,7 +176,11 @@
                                 <span class="tag">Gładzie</span>
                                 <span class="tag">Wnętrze</span>
                             </p>
-                            <label class="list__details-toggle" for="list-item-details-1">SVG</label>
+                            <label class="list__details-toggle" for="list-item-details-1">
+                                <svg class="list__details-icon">
+                                    <use href="./assets/svgs/sprite.svg#icon-info-with-circle"></use>
+                                </svg>
+                            </label>
                         </div>
                     </div>
 
@@ -199,7 +216,9 @@
                                 <span class="tag">Wnętrze</span>
                             </p>
                             <label class="list__details-toggle" for="list-item-details-2">
-                                SVG
+                                <svg class="list__details-icon">
+                                    <use href="./assets/svgs/sprite.svg#icon-info-with-circle"></use>
+                                </svg>
                             </span>
                         </div>
                     </div>
@@ -209,7 +228,7 @@
                     </div>
                 </article>
 
-            </section>
+            </section> -->
 
         </main>
 
@@ -242,18 +261,26 @@
                     </div>
                 </div>
                 <div class="footer__socials">
-                    <span class="footer__socials-item footer__socials-item--facebook">
-                        <span>1</span>                        
-                    </span>
-                    <span class="footer__socials-item footer__socials-item--twitter">
-                        <span>2</span>                        
-                    </span>
-                    <span class="footer__socials-item footer__socials-item--youtube">
-                        <span>3</span>                        
-                    </span>
-                    <span class="footer__socials-item footer__socials-item--linkedin">
-                        <span>4</span>
-                    </span>
+                    <a href="#facebook" class="footer__socials-item footer__socials-item--facebook">
+                        <svg class="footer__socials-icon">
+                            <use href="./assets/svgs/sprite.svg#icon-facebook"></use>
+                        </svg>                      
+                    </a>
+                    <a href="#noactive" class="footer__socials-item footer__socials-item--noactive footer__socials-item--twitter">
+                        <svg class="footer__socials-icon">
+                            <use href="./assets/svgs/sprite.svg#icon-twitter"></use>
+                        </svg>                        
+                    </a>
+                    <a href="#noactive" class="footer__socials-item footer__socials-item--noactive footer__socials-item--youtube">
+                        <svg class="footer__socials-icon">
+                            <use href="./assets/svgs/sprite.svg#icon-youtube"></use>
+                        </svg>                        
+                    </a>
+                    <a href="#linkedin" class="footer__socials-item footer__socials-item--linkedin">
+                        <svg class="footer__socials-icon">
+                            <use href="./assets/svgs/sprite.svg#icon-linkedin"></use>
+                        </svg> 
+                    </a>
                 </div>
 
             </div>

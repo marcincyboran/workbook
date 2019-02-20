@@ -1,14 +1,31 @@
-import _ from 'lodash';
-import test from './views/view';
-import '../style/main.scss';
+import './assets/assets';
+import router from './routing/router';
 
-function component() {
-    // let element = document.createElement('div');
+const contentDiv = document.getElementById('js-content');
+contentDiv.innerHTML = router[window.location.pathname]
+console.log('test')
 
-    // element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-    // return element;
+let onNavItemClick = (pathName) => {
+    window.history.pushState(
+      {}, 
+      pathName,
+      window.location.origin + pathName
+    );
+    contentDiv.innerHTML = routes[pathName];
 }
 
-document.body.appendChild(component());
-test();
+window.onpopstate = () => {
+    try {
+        contentDiv.innerHTML = routes[window.location.pathname];
+    } catch (ex) {
+        console.log(ex);
+        return;
+    }
+}
+
+window.addEventListener("hashchange", funcRef, false);
+
+
+function funcRef(event) {
+console.log(event);
+}

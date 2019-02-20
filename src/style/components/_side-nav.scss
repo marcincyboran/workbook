@@ -61,10 +61,14 @@
             border-bottom: var(--border-lighter);
         }
 
-        &::before {
+        &::before,
+        &::after {
             content: '';
             display: block;
             position: absolute;
+        }
+
+        &::before {
             background-color: var(--color-primary);
             top: 0;
             left: -2rem;
@@ -73,16 +77,27 @@
             opacity: 0;
             z-index: 5;
             transition: opacity .6s;
-            // top: 50%;
-            // height: 0;
-            // transform: translateY(-50%);
-            // border-radius: 2px;
+        }
+
+        &::after {
+            top: 50%;
+            right: 0;
+            width: 2rem;
+            height: 2rem;
+            transform: translate(-.5rem, -50%) rotate(-90deg);
+            background-image: url(./../../assets/svgs/single/chevron-down.svg);
+            opacity: .25;
+            transition: all .6s;
         }
     }
 
     &__item:hover::before {
         opacity: 1;
-        // height:100%;
+    }
+
+    &__item:hover::after {
+        transform: translate(.5rem, -50%) rotate(-90deg);
+        opacity: .5;
     } 
 
     &__link {

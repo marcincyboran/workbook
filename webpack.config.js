@@ -3,8 +3,6 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-console.log(path.resolve(__dirname, "/assets/imgs"));
-
 module.exports = {
     entry: ['babel-polyfill', './src/js/index.js' ],
     output: {
@@ -13,6 +11,7 @@ module.exports = {
     },
     devServer: {
         contentBase: './dist',
+        historyApiFallback: true,
         proxy: {
             '/api': {
                 target: 'http://localhost:3000',
@@ -51,8 +50,8 @@ module.exports = {
                     {
                     loader: 'file-loader',
                     options: {
-                        name: '[name].[ext]',
-                        outputPath: 'assets/imgs',
+                        name: '[folder]/[name].[ext]',
+                        outputPath: 'assets',
                       },
                     }
                 ]

@@ -32,7 +32,8 @@
 
         &-icon {
             fill: currentColor;
-            width: 50%;
+            width: 2rem;
+            height: 2rem;
         }
         
         &-item {
@@ -53,6 +54,7 @@
             
             &--noactive {
                 color: var(--color-grey-light-4) !important;
+                cursor: default;
             }
 
             & > * {

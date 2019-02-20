@@ -72,86 +72,96 @@ const template = `
         </ul>
     </section>
 
-    </aside>
+</aside>
 
     <section class="list">
 
-    <article class="list__item">
+        <article class="list__item">
 
-        <div class="list__top">
+            <div class="list__top">
 
-            <figure class="list__image-box">
-                <img src="http://buildercorp.pl/wp-content/uploads/2017/05/BX.jpg" alt="Budimex" class="list__image">
-            </figure>
+                <figure class="list__image-box">
+                    <img src="http://buildercorp.pl/wp-content/uploads/2017/05/BX.jpg" alt="Budimex" class="list__image">
+                </figure>
+                
+                <div class="list__content">
+                    <h2 class="heading-secondary">
+                        <a class="list__company-link" href="#budimex">Budimex S.A.</a>
+                    </h2>
+                    <p class="paragraph">Polecenia: <span class="text-bold">1723</span></p>
+                    <p class="list__rating">
+                        1 2 3 4 5
+                    </p>
+                    <p class="list__category-box">
+                        <span class="tag">Remont</span>
+                        <span class="tag">Wnętrze</span>
+                        <span class="tag">Ściany</span>
+                        <span class="tag">Gładzie</span>
+                        <span class="tag">Wnętrze</span>
+                    </p>
+                    <label class="list__details-toggle" for="list-item-details-1">
+                        <svg class="list__details-icon">
+                            <use href="./assets/svgs/sprite.svg#icon-info-with-circle"></use>
+                        </svg>
+                    </label>
+                </div>
+            </div>
+
+            <input class="list__details-switcher" type="checkbox" id="list-item-details-1">
             
-            <div class="list__content">
-                <h2 class="heading-secondary">
-                    <a class="list__company-link" href="#budimex">Budimex S.A.</a>
-                </h2>
-                <p class="paragraph">Polecenia: <span class="text-bold">1723</span></p>
-                <p class="list__rating">
-                    1 2 3 4 5
-                </p>
-                <p class="list__category-box">
-                    <span class="tag">Remont</span>
-                    <span class="tag">Wnętrze</span>
-                    <span class="tag">Ściany</span>
-                    <span class="tag">Gładzie</span>
-                    <span class="tag">Wnętrze</span>
-                </p>
-                <label class="list__details-toggle" for="list-item-details-1">
-                    <svg class="list__details-icon">
-                        <use href="./assets/svgs/sprite.svg#icon-info-with-circle"></use>
-                    </svg>
-                </label>
+            <div class="list__bottom">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis sequi at quasi natus expedita ex adipisci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!isci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!isci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!isci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!
             </div>
-        </div>
 
-        <input class="list__details-switcher" type="checkbox" id="list-item-details-1">
-        
-        <div class="list__bottom">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis sequi at quasi natus expedita ex adipisci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!isci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!isci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!isci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!
-        </div>
+        </article>
 
-    </article>
+        <article class="list__item">
 
-    <article class="list__item">
-
-        <div class="list__top">
-            <figure class="list__image-box">
-                <img src="http://buildercorp.pl/wp-content/uploads/2017/05/BX.jpg" alt="Budimex" class="list__image">
-            </figure>
-            <div class="list__content">
-                <h2 class="heading-secondary">
-                    Budimex S.A.
-                </h2>
-                <p class="paragraph">
-                    Polecenia: <span class="text-bold">1723</span>
-                </p>
-                <p class="list__rating">
-                    1 2 3 4 5
-                </p>
-                <p class="list__category-box">
-                    <span class="tag">Remont</span>
-                    <span class="tag">Wnętrze</span>
-                    <span class="tag">Ściany</span>
-                    <span class="tag">Gładzie</span>
-                    <span class="tag">Wnętrze</span>
-                </p>
-                <label class="list__details-toggle" for="list-item-details-2">
-                    <svg class="list__details-icon">
-                        <use href="./assets/svgs/sprite.svg#icon-info-with-circle"></use>
-                    </svg>
-                </span>
+            <div class="list__top">
+                <figure class="list__image-box">
+                    <img src="http://buildercorp.pl/wp-content/uploads/2017/05/BX.jpg" alt="Budimex" class="list__image">
+                </figure>
+                <div class="list__content">
+                    <h2 class="heading-secondary">
+                        Budimex S.A.
+                    </h2>
+                    <p class="paragraph">
+                        Polecenia: <span class="text-bold">1723</span>
+                    </p>
+                    <p class="list__rating">
+                        1 2 3 4 5
+                    </p>
+                    <p class="list__category-box">
+                        <span class="tag">Remont</span>
+                        <span class="tag">Wnętrze</span>
+                        <span class="tag">Ściany</span>
+                        <span class="tag">Gładzie</span>
+                        <span class="tag">Wnętrze</span>
+                    </p>
+                    <label class="list__details-toggle" for="list-item-details-2">
+                        <svg class="list__details-icon">
+                            <use href="./assets/svgs/sprite.svg#icon-info-with-circle"></use>
+                        </svg>
+                    </span>
+                </div>
             </div>
-        </div>
-        <input class="list__details-switcher" type="checkbox" id="list-item-details-2">
-        <div class="list__bottom">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis sequi at quasi natus expedita ex adipisci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!isci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!isci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!isci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!
-        </div>
-    </article>
+            <input class="list__details-switcher" type="checkbox" id="list-item-details-2">
+            <div class="list__bottom">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis sequi at quasi natus expedita ex adipisci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!isci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!isci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!isci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!
+            </div>
+        </article>
 
-</section>
+    </section>
+
+    <div class="pagination">
+        <span class="pagination__item">P</span>
+        <span class="pagination__item">1</span>
+        <span class="pagination__item">2</span>
+        <span class="pagination__item pagination__item--active">3</span>
+        <span class="pagination__item">4</span>
+        <span class="pagination__item">5</span>
+        <span class="pagination__item">N</span>
+    </div>
 `
 
 export default template;

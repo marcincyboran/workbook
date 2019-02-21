@@ -6,6 +6,7 @@ const template = `
         <div class="test">test</div>
         <div class="test">test</div>
     </section>
+    <a href="/abc">abc link</a>
 `;
 
 export default template;

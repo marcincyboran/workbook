@@ -1,19 +1,15 @@
 import './assets/assets';
 import './routing/router';
 
+const state = {
+    path: '/',
+    param: ''
+}
 
-// window.onpopstate = () => {
-//     try {
-//         contentDiv.innerHTML = routes[window.location.pathname];
-//     } catch (ex) {
-//         console.log(ex);
-//         return;
-//     }
-// }
+window.addEventListener('locationChanged', function (e) {
+    state.path = e.detail.path;
+    state.param = e.detail.param;
+    console.log(e);
+    console.log(state);
 
-// window.addEventListener("hashchange", funcRef, false);
-
-
-// function funcRef(event) {
-//     console.log(event);
-// }
+}, false);

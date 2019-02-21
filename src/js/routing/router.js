@@ -1,35 +1,29 @@
-import homeTemplate from './routes/home';
-import testTemplate from './routes/test';
-
-const routes = {
-    '/': homeTemplate,
-    '/test': testTemplate,
-};
-
-const contentDiv = document.getElementById('js-content');
-contentDiv.innerHTML = routes[window.location.pathname] || `404`;
+import { domElements } from '../base/base';
 
 const navigate = (pathName) => {
-    window.history.pushState({},
-        pathName,
-        window.location.origin + pathName
-    );
-    contentDiv.innerHTML = routes[pathName] || `404`;
-}
+    const clearPath = pathName.replace(':','');
+    const matches = pathName.match(/:(.*(?=\/))|:(.*)/gi);
+    const firstParam = matches ? matches[0].replace(':','') : '' ;
 
-window.onpopstate = () => {
-    // contentDiv.innerHTML = routes[window.location.pathname] || `404`;
-}
-
-document.addEventListener('click', (event) => {
-    const target = event.target;
-    const isAnchor = target.closest('a');
+    const event = new CustomEvent('locationChanged', {
+        detail: {
+            param: firstParam,
+            path: clearPath
+        }
+    });
     
-    if (isAnchor && isAnchor.attributes.href.value.indexOf('/') === 0) {
-        event.preventDefault();
-        navigate(isAnchor.attributes.href.value);
+    window.history.pushState({param: firstParam}, null, window.location.origin + clearPath);
+    window.dispatchEvent(event);
+};
+
+window.onpopstate = (e) => {
+    console.log(e)
+};
+
+domElements.topNavigation.addEventListener('click', (e) => {
+    if (e.target !== e.currentTarget && e.target.getAttribute('href')) {
+        e.preventDefault();
+        navigate(e.target.getAttribute('href'));    
     }
-    
+    e.stopPropagation();
 });
-
-// zamiast ustawiać tutaj innerHTML przekazać centrali nowy adres i tam napisać logike 

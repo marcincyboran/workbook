@@ -27,6 +27,7 @@
         }
 
         &:not(&--active):hover {
+            // Change colors for some dunno some new tertiary
             background-color: var(--color-grey-light-3);
             box-shadow: var(--shadow-small-dark);
         }

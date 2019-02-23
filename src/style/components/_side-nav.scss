@@ -46,7 +46,7 @@
         height: 20rem;
         overflow: hidden;
         transition: all .3s;
-        padding: 0 2rem;
+        padding: 0 var(--default-padding);
 
         &:hover {
             overflow: auto;
@@ -71,7 +71,7 @@
         &::before {
             background-color: var(--color-primary);
             top: 0;
-            left: -2rem;
+            left: calc(-1 * var(--default-padding));
             width: .4rem;
             height: 100%;
             opacity: 0;

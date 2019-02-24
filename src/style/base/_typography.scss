@@ -1,7 +1,17 @@
+.heading-primary {
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--color-grey-dark-2);
+}
+
 .heading-secondary {
     font-size: 1.8rem;
     font-weight: 400;
     color: var(--color-grey-dark-2);
+
+    &--white {
+        color: var(--color-white);
+    }
 }
 
 .tag {

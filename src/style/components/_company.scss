@@ -1,16 +1,12 @@
 .company {
-    // wywalic
-    min-height: 50rem;
     background-color: var(--color-white);
     border-radius: var(--default-border-radius);
     box-shadow: var(--shadow-small-middle);
 
-    
     &__top {
         display: flex;
         align-items: center;
         border-bottom: var(--border-light);
-        box-shadow: var(--shadow-small-light);
     }
     
     &__top-heading {

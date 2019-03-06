@@ -16,11 +16,8 @@ const navigate = (pathName) => {
     window.dispatchEvent(event);
 };
 
-window.onpopstate = (e) => {
-    console.log(e)
-};
-
 domElements.topNavigation.addEventListener('click', (e) => {
+    // sprawdzić czy można queryselectorall(top-nav a).click bez tego na dole
     if (e.target !== e.currentTarget && e.target.getAttribute('href')) {
         e.preventDefault();
         navigate(e.target.getAttribute('href'));    

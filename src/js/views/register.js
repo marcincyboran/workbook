@@ -55,7 +55,7 @@ export const template = `
                     <div class="form__group u-mb-huge">
                         <div class="form__block form__block--full  form__block--nomargin">
                             <label class="form__label form__label--checkbox">
-                                <input type="checkbox" class="form__checkbox" id="user-rodo">
+                                <input type="checkbox" class="form__checkbox" id="user-rodo1">
                                 <span class="form__checkmark"></span>Wyrażam zgodę na przetwarzanie moich danych osobowych podanych w formularzu oraz akcjeptuję regulamin.
                             </label>
                         </div>
@@ -109,14 +109,14 @@ export const template = `
                     <div class="form__group u-mb-huge">
                         <div class="form__block form__block--full  form__block--nomargin">
                             <label class="form__label form__label--checkbox">
-                                <input type="checkbox" class="form__checkbox" id="user-rodo">
+                                <input type="checkbox" class="form__checkbox" id="user-rodo2">
                                 <span class="form__checkmark"></span>Wyrażam zgodę na przetwarzanie moich danych osobowych podanych w formularzu oraz akcjeptuję regulamin.
                             </label>
                         </div>
 
                         <div class="form__block form__block--full form__block--nomargin">
                             <label class="form__label form__label--checkbox">
-                                <input type="checkbox" class="form__checkbox" id="user-rodo">
+                                <input type="checkbox" class="form__checkbox" id="user-rodo3">
                                 <span class="form__checkmark"></span>Wyrażam zgodę na otrzymywanie newslettera.
                             </label>
                         </div>

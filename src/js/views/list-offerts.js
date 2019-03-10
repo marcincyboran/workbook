@@ -3,6 +3,7 @@ import { elementsStrings, elements } from '../views/base';
 export const renderWrapper = () => {
     elements.content.innerHTML = `<section class="list"></section>`;
 }
+
 const renderTags = tags => {
     let markup = '';
     tags.forEach((tag) => {
@@ -11,11 +12,23 @@ const renderTags = tags => {
     return markup;
 }
 
+const formatDate = (rawDate) => {
+    const date = new Date(rawDate);
+    // Get time from server
+    const today = new Date();
+    if (today.getTime() - date.getTime() <= 86400000) {
+        return `
+        ${(date.getHours() < 10) ? '0' + date.getHours() : date.getHours()}:${(date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes()}`;
+    }
+    return `
+    ${(date.getDate() < 10) ? '0' + date.getDate() : date.getDate()}.${(date.getMonth() < 10) ? '0' + date.getMonth() : date.getMonth()}.${date.getFullYear()}`
+}
+
 const renderOffert = offert => {
     const markup = `
         <article class="list__item" data-id="${offert.id}">
             <div class="list__top">
-                <p class="list__date">${offert.date}</p>
+                <p class="list__date">${formatDate(offert.date)}</p>
                 <figure class="list__image-box">
                     <img src="http://buildercorp.pl/wp-content/uploads/2017/05/BX.jpg" alt="Budimex" class="list__image">
                 </figure>

@@ -18,6 +18,7 @@
         position: absolute;
         top: var(--default-padding);
         right: var(--default-padding);
+        z-index: 1;
     }
 
     &__date { font-size: 1.6rem; }

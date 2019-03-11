@@ -1,4 +1,4 @@
-import { elements } from '../views/base';
+import { el } from '../views/base';
 
 const navigate = (pathName) => {
     const clearPath = pathName.replace(':','');
@@ -16,7 +16,7 @@ const navigate = (pathName) => {
     window.dispatchEvent(event);
 };
 
-elements.topNavigation.addEventListener('click', (e) => {
+el.topNavigation.addEventListener('click', (e) => {
     // sprawdzić czy można queryselectorall(top-nav a).click bez tego na dole
     if (e.target !== e.currentTarget && e.target.getAttribute('href')) {
         e.preventDefault();

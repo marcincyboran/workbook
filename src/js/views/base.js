@@ -1,13 +1,13 @@
-export const elements = {
+export const el = {
     topNavigation: document.querySelector('.top-nav'),
     content: document.querySelector('#js-content'),
 };
 
-export const elementsStrings = {
+export const elStr = {
     list: `list`,
-    listTags: 'list__category-box'
+    listTags: 'list__category-box',
 };
 
 export function clearContent() {
-    elements.content.innerHTML = '';
+    el.content.innerHTML = '';
 }

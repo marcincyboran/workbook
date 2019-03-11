@@ -1,24 +1,25 @@
 import './assets/assets';
 import './routing/router';
-import { elements } from './views/base';
+import { el } from './views/base';
 import companiesCtrl from './controllers/companiesController';
 import listOfferCtrl from './controllers/listOffertsController';
 
 const state = {};
 
 window.onpopstate = (e) => {
-    loadTemplate();
+    loadController();
     console.log(e)
 };
 
 window.addEventListener('locationChanged', function (e) {
+    // TODO
     state.path = e.detail.path;
     state.param = e.detail.param;
-    loadTemplate();
+    loadController();
 }, false);
 
 
-async function loadTemplate() {
+async function loadController() {
     // load each route controller later
     switch (state.path) {
         case '/company':
@@ -28,16 +29,16 @@ async function loadTemplate() {
             break;
 
         case '/offerts':
-        break;
+            break;
 
         case '/aside':
-        break;
+            break;
 
         case '/offert':
-        break;
+            break;
 
         case '/registration':
-        break;
+            break;
 
         default:
             listOfferCtrl();

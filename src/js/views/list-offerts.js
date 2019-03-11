@@ -1,7 +1,7 @@
-import { elementsStrings, elements } from '../views/base';
+import { elStr, el } from '../views/base';
 
 export const renderWrapper = () => {
-    elements.content.innerHTML = `<section class="list"></section>`;
+    el.content.innerHTML = `<section class="list"></section>`;
 }
 
 const renderTags = tags => {
@@ -55,7 +55,7 @@ const renderOffert = offert => {
         </article>
     `;
     setTimeout(4000);
-    document.querySelector(`.${elementsStrings.list}`).insertAdjacentHTML('beforeend', markup);
+    document.querySelector(`.${elStr.list}`).insertAdjacentHTML('beforeend', markup);
 }
 
 export const renderOfferts = offerts => {

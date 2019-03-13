@@ -18,6 +18,7 @@ export default async function () {
     
     // Add loader
     base.renderLoader(base.elStr.list);
+
     // Get results
     try {
         await offerts.getOfferts();
@@ -30,7 +31,7 @@ export default async function () {
         listOffersView.renderOfferts(offerts.list);
 
     } catch (error) {
-        // console.log(error);
+        console.log(error);
     }
 
 };

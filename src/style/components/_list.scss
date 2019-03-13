@@ -34,6 +34,7 @@
     &__image-box {
         flex-basis: 15%;
         border-right: var(--border-lighter);
+        padding-right: var(--default-padding);
     }
 
     &__image {

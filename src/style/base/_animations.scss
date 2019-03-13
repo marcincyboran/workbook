@@ -2,3 +2,8 @@
     0% { box-shadow: var(--shadow-small-middle); transform: scale(1); }
     100% { box-shadow: var(--shadow-small-dark); transform: scale(1.02); }
 }
+
+@keyframes rotate360 {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+}

@@ -1,4 +1,4 @@
-import { el, clearContent, elStr } from '../views/base';
+import * as base from '../views/base';
 import * as listOffersView from '../views/list-offerts';
 import Offerts from '../models/Offerts';
 
@@ -6,22 +6,25 @@ export default async function () {
     console.log('list offerts controller works');
 
     // Clear view
-    clearContent();
+    base.clearContent();
+
     // Prepare list
     listOffersView.renderWrapper();
     addEvents();
+
     // Get offerts
     const offerts = new Offerts('asd');    
     console.log(offerts);
     
-    
     // Add loader
-
+    base.renderLoader(base.elStr.list);
     // Get results
     try {
         await offerts.getOfferts();
         console.log(offerts.list)
+        
         // Remove Loader
+        base.removeLoader();
     
         // Render results
         listOffersView.renderOfferts(offerts.list);
@@ -33,7 +36,7 @@ export default async function () {
 };
 
 function addEvents () {
-    document.querySelector(`.${elStr.list}`).addEventListener('click', ev => {
+    document.querySelector(`.${base.elStr.list}`).addEventListener('click', ev => {
         const target = ev.target;
 
         // Better use css trick

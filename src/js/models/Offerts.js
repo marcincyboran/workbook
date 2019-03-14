@@ -7,7 +7,8 @@ export default class Offerts {
 
     async getOfferts() {
         try {
-            const result = await axios.get(`/api/offerts${ (this.query) ? '?' + this.query : '' }`);
+            // `${ (this.query) ? '?' + this.query : '' }`
+            const result = await axios.get(`/api/offerts`);
             this.list = result.data;
         } catch (error) {
             console.warn(error);

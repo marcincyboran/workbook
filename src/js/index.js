@@ -1,7 +1,7 @@
 import './assets/assets';
 import './routing/router';
 import { el } from './views/base';
-import companiesCtrl from './controllers/companiesController';
+import companiesCtrl from './controllers/listCompaniesController';
 import listOfferCtrl from './controllers/listOffertsController';
 
 const state = {};
@@ -26,6 +26,7 @@ async function loadController() {
             break;
             
         case '/companies':
+            companiesCtrl()
             break;
 
         case '/offerts':

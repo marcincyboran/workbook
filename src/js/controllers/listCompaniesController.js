@@ -1,34 +1,34 @@
 import * as base from '../views/base';
 import * as listView from '../views/list';
-import Offerts from '../models/Offerts';
+import Companies from '../models/Companies';
 
 export default async function () {
-    console.log('list offerts controller works');
+    console.log('list companies controller works');
 
     // Clear view
     base.clearContent();
 
     // Prepare list
     listView.renderWrapper();
-    addEvents();
+    // addEvents();
 
-    // Create offert class
-    const offerts = new Offerts();    
-    console.log(offerts);
+    // Create companies obj
+    const companies = new Companies();    
+    console.log(companies);
     
     // Add loader
     base.renderLoader(base.elStr.list);
 
     // Get results
     try {
-        await offerts.getOfferts();
-        console.log(offerts.list)
+        await companies.getCompanies();
+        console.log(companies.list)
         
         // Remove Loader
         base.removeLoader();
     
         // Render results
-        listView.renderOfferts(offerts.list);
+        listView.renderCompanies(companies.list);
 
     } catch (error) {
         console.log(error);
@@ -41,10 +41,10 @@ function addEvents () {
     //     const target = ev.target;
 
         // Better use css trick
-    //     if(target.closest('.list__details-toggle')) {
-    //         const details = target.closest('article').querySelector(`.list__bottom-details`);
-    //         details.classList.toggle('active');
-    //         console.log('a');
-    //     }
+        // if(target.closest('.list__details-toggle')) {
+        //     const details = target.closest('article').querySelector(`.list__bottom-details`);
+        //     details.classList.toggle('active');
+        //     console.log('a');
+        // }
     // })
 }

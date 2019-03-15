@@ -10,7 +10,7 @@ export default async function () {
 
     // Prepare list
     listView.renderWrapper();
-    addEvents();
+    // addEvents();
 
     // Create offert class
     const offerts = new Offerts();    

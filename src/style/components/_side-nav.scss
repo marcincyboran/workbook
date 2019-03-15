@@ -6,7 +6,6 @@
     }
 
     &__list-box {
-
         flex: 1;
         position: relative;
         background-color: var(--color-white);
@@ -127,6 +126,4 @@
     &__switcher:checked ~ &__list-box &__list {
         height: 60rem;
     }
-
-    // &__switcher:checked ~ &__list-box &__list-label {}
 }

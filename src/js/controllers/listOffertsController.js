@@ -22,13 +22,12 @@ export default async function () {
     // Get results
     try {
         await offerts.getOfferts();
-        console.log(offerts.list)
         
         // Remove Loader
         base.removeLoader();
     
         // Render results
-        listView.renderAside();
+        listView.renderAside(offerts.aside);
         listView.renderOfferts(offerts.list);
 
     } catch (error) {

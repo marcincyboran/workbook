@@ -15,7 +15,7 @@ const renderTags = tags => {
 const renderAsideLink = asideLinks => {
     let markup = '';
     asideLinks.forEach((content) => {
-        markup += `<li class="side-nav__item"><a href="#${content}" class="side-nav__link">${content}</a></li>`;
+        markup += `<li class="side-nav__item"><a href="#${content}" data-nav="${content}" class="side-nav__link">${content}</a></li>`;
     });
     return markup;
 }
@@ -77,7 +77,7 @@ const renderOffert = offert => {
     document.querySelector(`.${elStr.list}`).insertAdjacentHTML('beforeend', markup);
 };
 
-const renderCompany = (company, index) => {
+const renderCompany = company => {
     const markup = `
         <article class="list__item" data-id="${company.id}">
             <div class="list__top">
@@ -107,29 +107,29 @@ const renderCompany = (company, index) => {
         </article>
     `;
     document.querySelector(`.${elStr.list}`).insertAdjacentHTML('beforeend', markup);
-    // setTimeout(() => {}, 200*index);
 };
 
-export const renderAside = (aside) => {
+export const renderAside = aside => {
+    console.log(aside);
     const markup = `
         <aside class="side-nav">
             <input class="side-nav__switcher" type="checkbox" id="toggle-list">
             <section class="side-nav__list-box">
                 <label class="side-nav__list-label" for="toggle-list">Więcej...</label>
                 <ul class="side-nav__list">
-                    ${renderAsideLink(aside)}
+                    ${renderAsideLink(aside.categories)}
                 </ul>
             </section>
             <section class="side-nav__list-box">
                 <label class="side-nav__list-label" for="toggle-list">Więcej...</label>
                 <ul class="side-nav__list">
-                    ${renderAsideLink(aside)}
+                    ${renderAsideLink(aside.popular)}
                 </ul>
             </section>
             <section class="side-nav__list-box">
                 <label class="side-nav__list-label" for="toggle-list">Więcej...</label>
                 <ul class="side-nav__list">
-                    ${renderAsideLink(aside)}
+                    ${renderAsideLink(aside.places)}
                 </ul>
             </section>
         </aside>

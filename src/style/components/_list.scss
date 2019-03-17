@@ -68,11 +68,22 @@
 
     &__company-link {
         cursor: pointer;
+        color: var(--color-primary);
+
         &:hover {
             color: var(--color-secondary);
         }
     }
-    
+
+    &__offer-link {
+        cursor: pointer;
+        color: var(--color-secondary);
+
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+
     &__category-box {
         position: absolute;
         bottom: 0;

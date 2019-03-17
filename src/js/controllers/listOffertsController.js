@@ -28,6 +28,7 @@ export default async function () {
         base.removeLoader();
     
         // Render results
+        listView.renderAside();
         listView.renderOfferts(offerts.list);
 
     } catch (error) {

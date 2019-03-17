@@ -27,10 +27,9 @@ body *::-webkit-scrollbar-track {
     background: var(--color-grey-dark-3);
 }
 
-::-webkit-scrollbar-thumb:window-inactive {
-    background: red;
-}
+// ::-webkit-scrollbar-thumb:window-inactive {}
 
+// -----------------------------------------------------------
 // ::-webkit-scrollbar the scrollbar.
 // ::-webkit-scrollbar-button the buttons on the scrollbar (arrows pointing upwards and downwards).
 // ::-webkit-scrollbar-thumb the draggable scrolling handle.

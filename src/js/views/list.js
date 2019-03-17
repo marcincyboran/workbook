@@ -12,20 +12,34 @@ const renderTags = tags => {
     return markup;
 };
 
+const renderAsideLink = asideLinks => {
+    let markup = '';
+    asideLinks.forEach((content) => {
+        markup += `<li class="side-nav__item"><a href="#${content}" class="side-nav__link">${content}</a></li>`;
+    });
+    return markup;
+}
+
 const formatDate = (rawDate) => {
     const date = new Date(rawDate);
     // Get time from server
     const today = new Date();
     if (today.getTime() - date.getTime() <= 86400000) {
-        return `
-        ${(date.getHours() < 10) ? '0' + date.getHours() : date.getHours()}:${(date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes()}`;
+        return `${(date.getHours() < 10) ? '0' + date.getHours() : date.getHours()}:${(date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes()}`;
     }
-    return `
-    ${(date.getDate() < 10) ? '0' + date.getDate() : date.getDate()}.${(date.getMonth() < 10) ? '0' + date.getMonth() : date.getMonth()}.${date.getFullYear()}`
+    return `${(date.getDate() < 10) ? '0' + date.getDate() : date.getDate()}.${(date.getMonth() < 10) ? '0' + date.getMonth() : date.getMonth()}.${date.getFullYear()}`
 };
 
-const calculateStars = () => {
+const calculateAndRenderStars = (likes, votes) => {
+    const stars = 5;
+    const fullStars = Math.round(likes/votes * stars);
+    let output = ``;
+    let i;
 
+    for(i = 0; i < stars; i++) {
+        output += `<svg class="icon icon--${(i <= fullStars) ? 'primary' : 'blank'} icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>`
+    }
+    return output;
 };
 
 const renderOffert = offert => {
@@ -37,7 +51,9 @@ const renderOffert = offert => {
                     <img src="http://buildercorp.pl/wp-content/uploads/2017/05/BX.jpg" alt="Budimex" class="list__image">
                 </figure>
                 <div class="list__content">
-                    <h2 class="heading-secondary u-mb-big">${offert.title}</h2>
+                    <h2 class="heading-secondary u-mb-big">
+                        <span class="list__offer-link" data-id="${offert.id}">${offert.title}</span>
+                    </h2>
                     <a href="https://www.google.com/maps?q=${offert.location}" target="_blank" class="list__location">
                         <svg class="icon icon--primary">
                             <use href="./assets/svgs/sprite.svg#icon-location-pin"></use>
@@ -61,46 +77,70 @@ const renderOffert = offert => {
     document.querySelector(`.${elStr.list}`).insertAdjacentHTML('beforeend', markup);
 };
 
-const renderCompany = company => {
+const renderCompany = (company, index) => {
     const markup = `
-    <article class="list__item" data-id="${company.id}">
-        <div class="list__top">
-            <p class="list__rating">
-                <svg class="icon icon--primary icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                <svg class="icon icon--primary icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                <svg class="icon icon--primary icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                <svg class="icon icon--blank icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                <svg class="icon icon--blank icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-            </p>
-            <figure class="list__image-box">
-                <img src="http://buildercorp.pl/wp-content/uploads/2017/05/BX.jpg" alt="Budimex" class="list__image">
-            </figure>
-            <div class="list__content">
-                <h2 class="heading-secondary u-mb-big">
-                    <span class="list__company-link" data-id="${company.id}">${company.name}</span>
-                </h2>
-                <p class="paragraph">Polecenia: <span class="text-bold">${company.likes}</span></p>
-                <p class="list__category-box">${renderTags(company.tags)}</p>
-                <label class="list__details-toggle" for="${company.id}">
-                    <svg class="icon">
-                        <use href="./assets/svgs/sprite.svg#icon-info-with-circle"></use>
-                    </svg>
-                </label>
+        <article class="list__item" data-id="${company.id}">
+            <div class="list__top">
+                <p class="list__rating">
+                    ${calculateAndRenderStars(company.likes, company.votes)}
+                </p>
+                <figure class="list__image-box">
+                    <img src="http://buildercorp.pl/wp-content/uploads/2017/05/BX.jpg" alt="Budimex" class="list__image">
+                </figure>
+                <div class="list__content">
+                    <h2 class="heading-secondary u-mb-big">
+                        <span class="list__company-link" data-id="${company.id}">${company.name}</span>
+                    </h2>
+                    <p class="paragraph">Polecenia: <span class="text-bold">${company.likes}</span></p>
+                    <p class="list__category-box">${renderTags(company.tags)}</p>
+                    <label class="list__details-toggle" for="${company.id}">
+                        <svg class="icon">
+                            <use href="./assets/svgs/sprite.svg#icon-info-with-circle"></use>
+                        </svg>
+                    </label>
+                </div>
             </div>
-        </div>
-        <input class="list__details-switcher" type="checkbox" id="${company.id}">
-        <div class="list__bottom">
-            <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis sequi at quasi natus expedita ex adipisci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!isci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!isci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!isci, aliquam voluptates suscipit magnam ad illo nulla sunt saepe delectus? Aut dolores facere quibusdam!
-            </p>
-        </div>
-    </article>
+            <input class="list__details-switcher" type="checkbox" id="${company.id}">
+            <div class="list__bottom">
+                <p>${company.text}</p>
+            </div>
+        </article>
     `;
     document.querySelector(`.${elStr.list}`).insertAdjacentHTML('beforeend', markup);
+    // setTimeout(() => {}, 200*index);
+};
+
+export const renderAside = (aside) => {
+    const markup = `
+        <aside class="side-nav">
+            <input class="side-nav__switcher" type="checkbox" id="toggle-list">
+            <section class="side-nav__list-box">
+                <label class="side-nav__list-label" for="toggle-list">Więcej...</label>
+                <ul class="side-nav__list">
+                    ${renderAsideLink(aside)}
+                </ul>
+            </section>
+            <section class="side-nav__list-box">
+                <label class="side-nav__list-label" for="toggle-list">Więcej...</label>
+                <ul class="side-nav__list">
+                    ${renderAsideLink(aside)}
+                </ul>
+            </section>
+            <section class="side-nav__list-box">
+                <label class="side-nav__list-label" for="toggle-list">Więcej...</label>
+                <ul class="side-nav__list">
+                    ${renderAsideLink(aside)}
+                </ul>
+            </section>
+        </aside>
+    `;
+    document.querySelector(`.${elStr.list}`).insertAdjacentHTML('beforebegin', markup);
 };
 
 export const renderOfferts = offerts => {
-    offerts.forEach(renderOffert);
+    offerts.forEach((el, i) => {
+        renderOffert(el, i);
+    });
 };
 
 export const renderCompanies = companies => {

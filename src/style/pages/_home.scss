@@ -3,7 +3,7 @@
     margin-bottom: calc(2 * var(--default-vertical-gap));
 
     // Wyliczyć !
-    // min-height: calc(100vh - 14rem - 45rem - 7rem - 12rem);
+    min-height: calc(100vh - 14rem - 45rem - 7rem - 12rem);
 
     & > *:not(:last-child) {
         margin-bottom: var(--default-vertical-gap);

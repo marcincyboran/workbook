@@ -9,7 +9,9 @@ export default class Offerts {
         try {
             // `${ (this.query) ? '?' + this.query : '' }`
             const result = await axios.get(`/api/offerts`);
-            this.list = result.data;
+            this.list = result.data.offers;
+            this.aside = result.data.aside;
+            console.log(result);
         } catch (error) {
             console.warn(error);
         }

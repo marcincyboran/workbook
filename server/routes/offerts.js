@@ -35,17 +35,60 @@ const offers = [
         date: new Date('2019-03-07'),
         location: 'Warszawa',
         tags: ['remont', 'podłoga']
+    },
+    {
+        id: 5,
+        title: 'offer 1',
+        text: 'lorm ipsum sdasd ad asdasd asdf asdf asfasdf asfnask hfaksjhf jasb fkjasg fkasbdfakjhsgdfasjgf dasjhgdfaksjdf',
+        date: new Date(),
+        location: 'Bogatynia',
+        tags: ['remont', 'podłoga', 'pilne', 'wykończenie']
+    },
+    { 
+        id: 6,
+        title: 'offer 2',
+        text: 'lorm ipsum sdasd ad asdasd asdf asdf asfasdf asfnask hfaksjhf jasb fkjasg fkasbdfakjhsgdfasjgf dasjhgdfaksjdf',
+        date: new Date('2019-03-09'),
+        location: 'Wrocław',
+        tags: ['dach']
+    },
+    { 
+        id: 7,
+        title: 'offer 3',
+        text: 'lorm ipsum sdasd ad asdasd asdf asdf asfasdf asfnask hfaksjhf jasb fkjasg fkasbdfakjhsgdfasjgf dasjhgdfaksjdf',
+        date: new Date('2019-03-08'),
+        location: 'Zgorzelec',
+        tags: ['remont', 'ściana']
+    },
+    { 
+        id: 8,
+        title: 'offer 4',
+        text: 'lorm ipsum sdasd ad asdasd asdf asdf asfasdf asfnask hfaksjhf jasb fkjasg fkasbdfakjhsgdfasjgf dasjhgdfaksjdf',
+        date: new Date('2019-03-07'),
+        location: 'Warszawa',
+        tags: ['remont', 'podłoga']
     }
 ];
 
+const aside = {
+    categories: ['Kategoria 1', 'Kategoria 2', 'Kategoria 3', 'Kategoria 4'],
+    popular: ['Popular 1', 'Popular 2', 'Popular 3', 'Popular 4', 'Popular 5', 'Popular 6', 'Popular 7', 'Popular 8', 'Popular 9', 'Popular 10' ],
+    places: ['Miasto 1', 'Miasto 2', 'Miasto 3', 'Miasto 4']
+};
+
 router.get('/', (req, res) => {
-    res.send(offers);
+    // Use fawn to get categories, popular and places then send it together inresponse
+     
+    // Pretend database delay
+    setTimeout(function() {
+        res.send({offers, aside});
+    }, 1000);
 });
 
 router.get('/:id', async (req, res) => {
     const offer = await Offer.findById(req.params.id);
     res.send(offer);
-})
+});
 
 router.post('/add', async (req, res) => {
     const { error } = validateOffer(req.body);
@@ -61,6 +104,6 @@ router.post('/add', async (req, res) => {
 
     await offer.save();
     res.send(offer);
-})
+});
 
 module.exports = router;

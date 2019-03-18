@@ -2,6 +2,7 @@ import './assets/assets';
 import './routing/router';
 import { el } from './views/base';
 import companiesCtrl from './controllers/listCompaniesController';
+import companyCtrl from './controllers/companyController';
 import listOfferCtrl from './controllers/listOffertsController';
 
 const state = {};
@@ -23,24 +24,17 @@ async function loadController() {
     // load each route controller later
     switch (state.path) {
         case '/company':
-            break;
-            
+            companyCtrl();
+            break;   
         case '/companies':
             companiesCtrl()
             break;
-
         case '/offerts':
             break;
-
-        case '/aside':
-            break;
-
         case '/offert':
             break;
-
         case '/registration':
             break;
-
         default:
             listOfferCtrl();
             break;

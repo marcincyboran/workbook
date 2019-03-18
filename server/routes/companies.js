@@ -94,7 +94,10 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    res.send('/api/company - router')
+
+    // TODO - db query
+    const index = companies.findIndex((el) => el.id === parseInt(req.params.id));
+    res.send(companies[index]);
 })
 
 module.exports = router;

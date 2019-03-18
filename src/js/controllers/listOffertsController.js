@@ -17,7 +17,7 @@ export default async function () {
     console.log(offerts);
     
     // Add loader
-    base.renderLoader(base.elStr.list);
+    base.renderLoader();
 
     // Get results
     try {

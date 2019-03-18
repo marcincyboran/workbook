@@ -1,19 +1,20 @@
 export const el = {
     topNavigation: document.querySelector('.top-nav'),
-    content: document.querySelector('#js-content'),
+    content: document.querySelector('.content'),
 };
 
 export const elStr = {
     list: `list`,
     listTags: 'list__category-box',
-    loader: 'loader'
+    loader: 'loader',
+    content: 'content',
 };
 
 export function clearContent() {
     el.content.innerHTML = '';
 }
 
-export function renderLoader(parent) {
+export function renderLoader(parent = el.content) {
     const loader = `
         <div class="loader">
             <p class="heading-secondary u-mb-huge">Ładowanie...</p>
@@ -32,7 +33,7 @@ export function renderLoader(parent) {
     if (typeof parent === "string") {
         document.querySelector(`.${parent}`).insertAdjacentHTML('afterbegin', loader);
     } else {
-        parentElement.insertAdjacentHTML('afterbegin').innerHTML = loader;
+        parent.insertAdjacentHTML('afterbegin', loader);
     }
 }
 

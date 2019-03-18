@@ -8,19 +8,19 @@ export default async function () {
     // Clear view
     base.clearContent();
 
+    // Create companies obj
+    const companies = new Companies();
+    console.log(companies);
+    
     // Prepare list
     listView.renderWrapper();
     // addEvents();
-
-    // Create companies obj
-    const companies = new Companies();    
-    console.log(companies);
     
-    // Add loader
-    base.renderLoader(base.elStr.list);
-
-    // Get results
     try {
+        // Add loader
+        base.renderLoader();
+        
+        // Get results
         await companies.getCompanies();
         console.log(companies.list)
         

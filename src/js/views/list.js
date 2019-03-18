@@ -18,7 +18,7 @@ const renderAsideLink = asideLinks => {
         markup += `<li class="side-nav__item"><a href="#${content}" data-nav="${content}" class="side-nav__link">${content}</a></li>`;
     });
     return markup;
-}
+};
 
 const formatDate = (rawDate) => {
     const date = new Date(rawDate);
@@ -138,9 +138,7 @@ export const renderAside = aside => {
 };
 
 export const renderOfferts = offerts => {
-    offerts.forEach((el, i) => {
-        renderOffert(el, i);
-    });
+    offerts.forEach(renderOffert);
 };
 
 export const renderCompanies = companies => {

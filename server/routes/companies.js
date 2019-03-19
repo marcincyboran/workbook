@@ -112,6 +112,7 @@ const companies = [
         date: new Date('2019-03-08'),
         location: 'Zgorzelec',
         tags: ['remont', 'ściana'],
+        services: ['Lorem 12', 'Lorem 232', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322','Lorem 1442'],
         likes: 1113,
         votes: 2000,
         details: {
@@ -167,7 +168,9 @@ router.get('/:id', (req, res) => {
 
     // TODO - db query
     const index = companies.findIndex((el) => el.id === parseInt(req.params.id));
-    res.send(companies[index]);
+    setTimeout(function() {
+        res.send(companies[index]);
+    }, 1000);
 })
 
 module.exports = router;

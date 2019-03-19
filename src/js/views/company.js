@@ -26,7 +26,8 @@ const createReview = review => {
             </p>
         </article>
     `;
-}
+};
+
 const createBlankReview = () => {
     return `
         <article class="company__review-item">
@@ -39,14 +40,29 @@ const createBlankReview = () => {
             </p>
         </article>
     `;
-}
+};
 
 const createReviews = reviews => {
     if (!reviews) return createBlankReview();
     let allReviews = '';
     reviews.forEach(el => allReviews += createReview(el));
     return allReviews;
-}
+};
+
+const createService = service => {
+    return `
+        <li class="u-list__item">
+            <svg class="icon"><use href="./assets/svgs/sprite.svg#icon-chevron-down"></use></svg>
+            ${service}
+        </li>
+    `;
+};
+
+const createServices = services => {
+    let output = '';
+    services.forEach(el => output += createService(el));
+    return output;
+};
 
 export const renderCompany = company => {
     const markup = `
@@ -72,26 +88,7 @@ export const renderCompany = company => {
                     <p class="company__description-text u-mb-big">${company.text}</p>
                     <h3 class="heading-secondary u-mb-small">Usługi:</h3>
                     <ul class="u-list u-mb-big">
-                        <li class="u-list__item">
-                            <svg class="icon"><use href="./assets/svgs/sprite.svg#icon-chevron-down"></use></svg>
-                            Lorem, ipsum.
-                        </li>
-                        <li class="u-list__item">
-                            <svg class="icon"><use href="./assets/svgs/sprite.svg#icon-chevron-down"></use></svg>
-                            Lorem, ipasdas um.
-                        </li>
-                        <li class="u-list__item">
-                            <svg class="icon"><use href="./assets/svgs/sprite.svg#icon-chevron-down"></use></svg>
-                            Lorem, ipasdas um.
-                        </li>
-                        <li class="u-list__item">
-                            <svg class="icon"><use href="./assets/svgs/sprite.svg#icon-chevron-down"></use></svg>
-                            Lorem, ipasdas um.
-                        </li>
-                        <li class="u-list__item">
-                            <svg class="icon"><use href="./assets/svgs/sprite.svg#icon-chevron-down"></use></svg>
-                            Lorem, ipsd asd.
-                        </li>
+                        ${(company.services) ? createServices(company.services) : ''}
                     </ul>
                     <h3 class="heading-secondary u-mb-small">Informacje:</h3>
                     <div class="adress-details u-mb-big">

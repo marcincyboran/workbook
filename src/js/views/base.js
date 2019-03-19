@@ -1,3 +1,6 @@
+import state from '../index';
+import axios from 'axios';
+
 export const el = {
     topNavigation: document.querySelector('.top-nav'),
     content: document.querySelector('.content'),
@@ -8,6 +11,7 @@ export const elStr = {
     listTags: 'list__category-box',
     loader: 'loader',
     content: 'content',
+    listCompanyLink: 'list__company-link',
 };
 
 export function clearContent() {
@@ -44,10 +48,18 @@ export function removeLoader() {
 
 export function formatDate (rawDate) {
     const date = new Date(rawDate);
-    // Get time from server
-    const today = new Date();
+
+    // Get time from server and store it in state
+    const today = new Date(state.time) || new Date();
     if (today.getTime() - date.getTime() <= 86400000) {
         return `${(date.getHours() < 10) ? '0' + date.getHours() : date.getHours()}:${(date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes()}`;
     }
     return `${(date.getDate() < 10) ? '0' + date.getDate() : date.getDate()}.${(date.getMonth() < 10) ? '0' + date.getMonth() : date.getMonth()}.${date.getFullYear()}`
 };
+
+const getTime = async () => {
+    const result = await axios('/api/base/time');
+    state.time = result.data;
+    console.log(state);
+};
+getTime();

@@ -29,6 +29,7 @@ export default async function () {
         // Render results
         listView.renderAside(offerts.aside);
         listView.renderOfferts(offerts.list);
+        // addEvents();
 
     } catch (error) {
         console.log(error);
@@ -37,14 +38,16 @@ export default async function () {
 };
 
 function addEvents () {
-    // document.querySelector(`.${base.elStr.list}`).addEventListener('click', ev => {
-    //     const target = ev.target;
+    document.querySelector(`.${base.elStr.list}`).addEventListener('click', ev => {
+        const target = ev.target;
+
+        console.log(target);
 
         // Better use css trick
-    //     if(target.closest('.list__details-toggle')) {
-    //         const details = target.closest('article').querySelector(`.list__bottom-details`);
-    //         details.classList.toggle('active');
-    //         console.log('a');
-    //     }
-    // })
+        // if(target.closest('.list__details-toggle')) {
+        //     const details = target.closest('article').querySelector(`.list__bottom-details`);
+        //     details.classList.toggle('active');
+        //     console.log('a');
+        // }
+    });
 }

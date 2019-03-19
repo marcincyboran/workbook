@@ -1,6 +1,6 @@
 import './assets/assets';
 import './routing/router';
-import { el } from './views/base';
+import * as base from './views/base';
 import companiesCtrl from './controllers/listCompaniesController';
 import companyCtrl from './controllers/companyController';
 import listOfferCtrl from './controllers/listOffertsController';
@@ -18,7 +18,6 @@ window.addEventListener('locationChanged', function (e) {
     state.param = e.detail.param;
     loadController();
 }, false);
-
 
 async function loadController() {
     // load each route controller later

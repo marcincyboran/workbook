@@ -1,41 +1,64 @@
-import { elStr, el } from './base';
+import * as base from './base';
 
-const renderReview = review => {
-    const markup = `
+const calculateAndRenderStars = (rating) => {
+    const stars = 5;
+    let output = ``;
+    let i;
+
+    for(i = 0; i < stars; i++) {
+        output += `<svg class="icon icon--${(i < rating) ? 'primary' : 'blank'} icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>`
+    }
+    return output;
+};
+
+const createReview = review => {
+    return `
         <article class="company__review-item">
             <header class="company__review-header">
-                <span class="company__review-person">Marcin Cyboran</span>
-                <span class="company__review-date">01.06.2019</span>
+                <span class="company__review-person">${review.name}</span>
+                <span class="company__review-date">${base.formatDate(review.date)}</span>
             </header>
             <p class="company__review-content">
                 <span class="company__review-rating">
-                    <svg class="icon icon--primary icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                    <svg class="icon icon--primary icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                    <svg class="icon icon--primary icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                    <svg class="icon icon--blank icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                    <svg class="icon icon--blank icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
+                    ${calculateAndRenderStars(review.rating)}
                 </span>
-                <span class="company__review-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae quisquam ullam,lendus ullam quaerat quasi.</span>
+                <span class="company__review-text">${review.text}</span>
+            </p>
+        </article>
+    `;
+}
+const createBlankReview = () => {
+    return `
+        <article class="company__review-item">
+            <header class="company__review-header">
+                <span class="company__review-person">System</span>
+                <span class="company__review-date">brak recenzji</span>
+            </header>
+            <p class="company__review-content">
+                <span class="company__review-text">Jeżeli korzystałeś z usług tej firmy, napisz recenzję. (opcja dostępna z panelu użytkownika)</span>
             </p>
         </article>
     `;
 }
 
-const renderReviews = reviews => {
-    reviews.forEach(renderReview);
+const createReviews = reviews => {
+    if (!reviews) return createBlankReview();
+    let allReviews = '';
+    reviews.forEach(el => allReviews += createReview(el));
+    return allReviews;
 }
 
 export const renderCompany = company => {
     const markup = `
         <section class="company">
             <div class="company__top">
-                <h2 class="company__top-heading heading-primary">Budimex S.A.</h2>
-                <a href="https://www.google.com/maps?q=Bogatynia" target="_blank" class="company__top-location">
+                <h2 class="company__top-heading heading-primary">${company.name}</h2>
+                <a href="https://www.google.com/maps?q=${company.location}" target="_blank" class="company__top-location">
                     <svg class="icon icon--primary"><use href="./assets/svgs/sprite.svg#icon-location-pin"></use></svg>
-                    <span>Bogatynia</span>
+                    <span>${company.location}</span>
                 </a>
                 <div class="company__top-rate">
-                    <span>8.8</span>
+                    <span>${((company.likes/company.votes)*10).toFixed(1)}</span>
                 </div>
             </div>
             <div class="company__gallery">
@@ -46,7 +69,7 @@ export const renderCompany = company => {
             <div class="company__content">
                 <div class="company__description">
                     <h3 class="heading-secondary u-mb-small">Opis:</h3>
-                    <p class="company__description-text u-mb-big"></p>
+                    <p class="company__description-text u-mb-big">${company.text}</p>
                     <h3 class="heading-secondary u-mb-small">Usługi:</h3>
                     <ul class="u-list u-mb-big">
                         <li class="u-list__item">
@@ -73,68 +96,38 @@ export const renderCompany = company => {
                     <h3 class="heading-secondary u-mb-small">Informacje:</h3>
                     <div class="adress-details u-mb-big">
                         <address>
-                            <span>59-920 Bogatynia</span>
-                            <span>ul. Matejki 17</span>
-                            <span>Polska</span>                                
+                            <span>${company.details.zipCode} ${company.location}</span>
+                            <span>ul. ${company.details.address}</span>
+                            <span>${company.details.country}</span>                                
                         </address>
-                        <span>NIP: 123456789</span>                                
+                        <span>${(company.details.nip) ? 'NIP: '+ company.details.nip : ''}</span>
+                        <span>${(company.details.regon) ? 'REGON: '+ company.details.regon : ''}</span>                               
                     </div>
                     <h3 class="heading-secondary u-mb-small">Strona internetowa:</h3>
-                    <a class="company__site" href="#company__site">
+                    <a class="company__site" href="http://${company.site}" target="_blank">
                         <svg class="icon"><use href="./assets/svgs/sprite.svg#icon-home"></use></svg>
-                        <span>www.budimex.pl</span>
+                        <span>${company.site}</span>
                     </a>
                 </div>
                 <div class="company__review">
-                    <article class="company__review-item">
-                        <header class="company__review-header">
-                            <span class="company__review-person">Marcin Cyboran</span>
-                            <span class="company__review-date">01.06.2019</span>
-                        </header>
-                        <p class="company__review-content">
-                            <span class="company__review-rating">
-                                <svg class="icon icon--primary icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                                <svg class="icon icon--primary icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                                <svg class="icon icon--primary icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                                <svg class="icon icon--blank icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                                <svg class="icon icon--blank icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                            </span>
-                            <span class="company__review-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae quisquam ullam,lendus ullam quaerat quasi.</span>
-                        </p>
-                    </article>
-                    <article class="company__review-item">
-                        <header class="company__review-header">
-                            <span class="company__review-person">Klaudia Rawińska</span>
-                            <span class="company__review-date">01.01.2019</span>
-                        </header>
-                        <p class="company__review-content">
-                            <span class="company__review-rating">
-                                <svg class="icon icon--primary icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                                <svg class="icon icon--primary icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                                <svg class="icon icon--primary icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                                <svg class="icon icon--primary icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                                <svg class="icon icon--blank icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>
-                            </span>
-                            <span class="company__review-text">m ullam, optio voluptatum ea in. Eveniet repellendus ullam quaerat quasi.</span>
-                        </p>
-                    </article>
+                    ${(company.reviews) ? createReviews(company.reviews) : createReviews()}
                 </div>
             </div>
             <div class="company__bottom">
-                <a href="#lista" class="button button--primary button--icon button--big" data-company="budimex">
+                <a href="#lista" class="button button--primary button--icon button--big" data-company="${company.id}">
                     <span>Lista ofert</span>
                     <svg class="icon"><use href="./assets/svgs/sprite.svg#icon-magnifying-glass"></use></svg>
                 </a>
-                <a href="#projekty" class="button button--secondary button--icon button--big" data-company="budimex">
+                <a href="#projekty" class="button button--secondary button--icon button--big" data-company="${company.id}">
                     <span>Projekty</span>
                     <svg class="icon"><use href="./assets/svgs/sprite.svg#icon-camera"></use></svg>
                 </a>
-                <a href="#rezerwacja" class="button button--tertiary button--icon button--big" data-company="budimex">
+                <a href="#rezerwacja" class="button button--tertiary button--icon button--big" data-company="${company.id}">
                     <span>Zarezerwuj</span>
                     <svg class="icon"><use href="./assets/svgs/sprite.svg#icon-calendar"></use></svg>
                 </a>
             </div>
         </section>
     `;
-    el.content.insertAdjacentHTML('beforeend', markup);
+    base.el.content.insertAdjacentHTML('beforeend', markup);
 };

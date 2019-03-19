@@ -1,14 +1,12 @@
-import { elStr, el } from './base';
+import * as base from './base';
 
 export const renderWrapper = () => {
-    el.content.innerHTML = `<section class="list"></section>`;
+    base.el.content.innerHTML = `<section class="list"></section>`;
 };
 
 const renderTags = tags => {
     let markup = '';
-    tags.forEach((tag) => {
-        markup += `<span class="tag">${tag}</span>`;
-    });
+    tags.forEach(tag => markup += `<span class="tag">${tag}</span>`);
     return markup;
 };
 
@@ -20,24 +18,13 @@ const renderAsideLink = asideLinks => {
     return markup;
 };
 
-const formatDate = (rawDate) => {
-    const date = new Date(rawDate);
-    // Get time from server
-    const today = new Date();
-    if (today.getTime() - date.getTime() <= 86400000) {
-        return `${(date.getHours() < 10) ? '0' + date.getHours() : date.getHours()}:${(date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes()}`;
-    }
-    return `${(date.getDate() < 10) ? '0' + date.getDate() : date.getDate()}.${(date.getMonth() < 10) ? '0' + date.getMonth() : date.getMonth()}.${date.getFullYear()}`
-};
-
 const calculateAndRenderStars = (likes, votes) => {
     const stars = 5;
     const fullStars = Math.round(likes/votes * stars);
     let output = ``;
     let i;
-
     for(i = 0; i < stars; i++) {
-        output += `<svg class="icon icon--${(i <= fullStars) ? 'primary' : 'blank'} icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>`
+        output += `<svg class="icon icon--${(i < fullStars) ? 'primary' : 'blank'} icon--small"><use href="./assets/svgs/sprite.svg#icon-star"></use></svg>`
     }
     return output;
 };
@@ -46,7 +33,7 @@ const renderOffert = offert => {
     const markup = `
         <article class="list__item" data-id="${offert.id}">
             <div class="list__top">
-                <p class="list__date">${formatDate(offert.date)}</p>
+                <p class="list__date">${base.formatDate(offert.date)}</p>
                 <figure class="list__image-box">
                     <img src="http://buildercorp.pl/wp-content/uploads/2017/05/BX.jpg" alt="Budimex" class="list__image">
                 </figure>
@@ -74,7 +61,7 @@ const renderOffert = offert => {
             </div>
         </article>
     `;
-    document.querySelector(`.${elStr.list}`).insertAdjacentHTML('beforeend', markup);
+    document.querySelector(`.${base.elStr.list}`).insertAdjacentHTML('beforeend', markup);
 };
 
 const renderCompany = company => {
@@ -106,7 +93,7 @@ const renderCompany = company => {
             </div>
         </article>
     `;
-    document.querySelector(`.${elStr.list}`).insertAdjacentHTML('beforeend', markup);
+    document.querySelector(`.${base.elStr.list}`).insertAdjacentHTML('beforeend', markup);
 };
 
 export const renderAside = aside => {
@@ -134,7 +121,7 @@ export const renderAside = aside => {
             </section>
         </aside>
     `;
-    document.querySelector(`.${elStr.list}`).insertAdjacentHTML('beforebegin', markup);
+    document.querySelector(`.${base.elStr.list}`).insertAdjacentHTML('beforebegin', markup);
 };
 
 export const renderOfferts = offerts => {

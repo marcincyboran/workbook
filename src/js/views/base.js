@@ -12,7 +12,7 @@ export const elStr = {
 
 export function clearContent() {
     el.content.innerHTML = '';
-}
+};
 
 export function renderLoader(parent = el.content) {
     const loader = `
@@ -35,9 +35,19 @@ export function renderLoader(parent = el.content) {
     } else {
         parent.insertAdjacentHTML('afterbegin', loader);
     }
-}
+};
 
 export function removeLoader() {
     const loader = document.querySelector(`.${elStr.loader}`);
     loader.parentNode.removeChild(loader);
-}
+};
+
+export function formatDate (rawDate) {
+    const date = new Date(rawDate);
+    // Get time from server
+    const today = new Date();
+    if (today.getTime() - date.getTime() <= 86400000) {
+        return `${(date.getHours() < 10) ? '0' + date.getHours() : date.getHours()}:${(date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes()}`;
+    }
+    return `${(date.getDate() < 10) ? '0' + date.getDate() : date.getDate()}.${(date.getMonth() < 10) ? '0' + date.getMonth() : date.getMonth()}.${date.getFullYear()}`
+};

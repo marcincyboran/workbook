@@ -2,20 +2,20 @@ import * as base from '../views/base';
 import Company from '../models/Company';
 import * as companyView from '../views/company';
 
-export default async function copmanyController() {
+export default async function companyController() {
     
     base.clearContent();
 
     base.renderLoader();
 
-    const company = new Company(2);
+    const company = new Company(7);
 
     try {
         await company.getCompany();
+
         base.removeLoader();
 
-        // render data
-        companyView.renderCompany();
+        companyView.renderCompany(company.data);
     } catch (error) {
         console.log(error);
     }

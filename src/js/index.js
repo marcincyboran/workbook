@@ -46,6 +46,9 @@ async function loadController() {
     }
 };
 
+offersCtrl()
+
+
 // TODO
 
 // Poprawić router, bazujący na location / poprawne ścieżki

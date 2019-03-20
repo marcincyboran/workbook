@@ -1,11 +1,12 @@
 import './assets/assets';
 import './routing/router';
-import * as base from './views/base';
+import state from './models/state';
+
 import companiesCtrl from './controllers/listCompaniesController';
 import companyCtrl from './controllers/companyController';
-import listOfferCtrl from './controllers/listOffertsController';
-
-const state = {};
+import offersCtrl from './controllers/listOffersController';
+import offerCtrl from './controllers/offerController';
+import registrationCtrl from './controllers/registrationController';
 
 window.onpopstate = (e) => {
     loadController();
@@ -17,25 +18,34 @@ window.addEventListener('locationChanged', function (e) {
     state.path = e.detail.path;
     state.param = e.detail.param;
     loadController();
+    // console.info('Location changed state', state);
+
 }, false);
 
 async function loadController() {
     // load each route controller later
     switch (state.path) {
         case '/company':
-            companyCtrl();
+            companyCtrl(state.param);
             break;   
         case '/companies':
             companiesCtrl()
             break;
-        case '/offerts':
+        case '/offers':
+            offersCtrl()
             break;
-        case '/offert':
+        case '/offer':
+            offerCtrl(state.param);
             break;
         case '/registration':
+            registrationCtrl();
             break;
         default:
-            listOfferCtrl();
+            offersCtrl();
             break;
     }
 };
+
+// TODO
+
+// Poprawić router, bazujący na location / poprawne ścieżki

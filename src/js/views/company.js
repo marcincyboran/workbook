@@ -77,10 +77,10 @@ export const renderCompany = company => {
                     <span>${((company.likes/company.votes)*10).toFixed(1)}</span>
                 </div>
             </div>
-            <div class="company__gallery">
-                <img src="" alt="gallery photo 1" class="company__gallery-item">
-                <img src="" alt="gallery photo 2" class="company__gallery-item">
-                <img src="" alt="gallery photo 3" class="company__gallery-item">
+            <div class="gallery">
+                <img src="" alt="gallery photo 1" class="gallery-item">
+                <img src="" alt="gallery photo 2" class="gallery-item">
+                <img src="" alt="gallery photo 3" class="gallery-item">
             </div>
             <div class="company__content">
                 <div class="company__description">

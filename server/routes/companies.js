@@ -18,6 +18,21 @@ const companies = [
             country: 'Polska',
             nip: 123456789
         },
+        services: ['Lorem 12', 'Lorem 232', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322','Lorem 1442'],
+        reviews: [
+            {
+                name: 'Marcin Cyboran',
+                text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae quisquam ullam,lendus ullam quaerat quasi.',
+                date: new Date('2019-03-08'),
+                rating: 3
+            },
+            {
+                name: 'Klaudia Rawińska',
+                text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusaam,lendus ullam quaerat quasi.',
+                date: new Date('2019-03-09'),
+                rating: 5
+            }
+        ],
         site: 'www.google.pl'
     },
     {
@@ -35,6 +50,21 @@ const companies = [
             country: 'Polska',
             nip: 123456789
         },
+        services: ['Lorem 12', 'Lorem 232', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322','Lorem 1442'],
+        reviews: [
+            {
+                name: 'Marcin Cyboran',
+                text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae quisquam ullam,lendus ullam quaerat quasi.',
+                date: new Date('2019-03-08'),
+                rating: 3
+            },
+            {
+                name: 'Klaudia Rawińska',
+                text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusaam,lendus ullam quaerat quasi.',
+                date: new Date('2019-03-09'),
+                rating: 5
+            }
+        ],
         site: 'www.google.pl'
     },
     {
@@ -52,6 +82,21 @@ const companies = [
             country: 'Polska',
             nip: 123456789
         },
+        services: ['Lorem 12', 'Lorem 232', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322','Lorem 1442'],
+        reviews: [
+            {
+                name: 'Marcin Cyboran',
+                text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae quisquam ullam,lendus ullam quaerat quasi.',
+                date: new Date('2019-03-08'),
+                rating: 3
+            },
+            {
+                name: 'Klaudia Rawińska',
+                text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusaam,lendus ullam quaerat quasi.',
+                date: new Date('2019-03-09'),
+                rating: 5
+            }
+        ],
         site: 'www.google.pl'
     },
     {
@@ -69,6 +114,21 @@ const companies = [
             country: 'Polska',
             nip: 123456789
         },
+        services: ['Lorem 12', 'Lorem 232', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322','Lorem 1442'],
+        reviews: [
+            {
+                name: 'Marcin Cyboran',
+                text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae quisquam ullam,lendus ullam quaerat quasi.',
+                date: new Date('2019-03-08'),
+                rating: 3
+            },
+            {
+                name: 'Klaudia Rawińska',
+                text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusaam,lendus ullam quaerat quasi.',
+                date: new Date('2019-03-09'),
+                rating: 5
+            }
+        ],
         site: 'www.google.pl'
     },
     {
@@ -86,6 +146,21 @@ const companies = [
             country: 'Polska',
             nip: 123456789
         },
+        services: ['Lorem 12', 'Lorem 232', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322','Lorem 1442'],
+        reviews: [
+            {
+                name: 'Marcin Cyboran',
+                text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae quisquam ullam,lendus ullam quaerat quasi.',
+                date: new Date('2019-03-08'),
+                rating: 3
+            },
+            {
+                name: 'Klaudia Rawińska',
+                text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusaam,lendus ullam quaerat quasi.',
+                date: new Date('2019-03-09'),
+                rating: 5
+            }
+        ],
         site: 'www.google.pl'
     },
     {
@@ -103,6 +178,21 @@ const companies = [
             country: 'Polska',
             nip: 123456789
         },
+        services: ['Lorem 12', 'Lorem 232', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322','Lorem 1442'],
+        reviews: [
+            {
+                name: 'Marcin Cyboran',
+                text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae quisquam ullam,lendus ullam quaerat quasi.',
+                date: new Date('2019-03-08'),
+                rating: 3
+            },
+            {
+                name: 'Klaudia Rawińska',
+                text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusaam,lendus ullam quaerat quasi.',
+                date: new Date('2019-03-09'),
+                rating: 5
+            }
+        ],
         site: 'www.google.pl'
     },
     {
@@ -112,7 +202,6 @@ const companies = [
         date: new Date('2019-03-08'),
         location: 'Zgorzelec',
         tags: ['remont', 'ściana'],
-        services: ['Lorem 12', 'Lorem 232', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322','Lorem 1442'],
         likes: 1113,
         votes: 2000,
         details: {
@@ -121,6 +210,7 @@ const companies = [
             country: 'Polska',
             nip: 123456789
         },
+        services: ['Lorem 12', 'Lorem 232', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322','Lorem 1442'],
         reviews: [
             {
                 name: 'Marcin Cyboran',
@@ -152,6 +242,21 @@ const companies = [
             country: 'Polska',
             nip: 123456789
         },
+        services: ['Lorem 12', 'Lorem 232', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322', 'Lorem 14232', 'Lorem 12342', 'Lorem 14322','Lorem 1442'],
+        reviews: [
+            {
+                name: 'Marcin Cyboran',
+                text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae quisquam ullam,lendus ullam quaerat quasi.',
+                date: new Date('2019-03-08'),
+                rating: 3
+            },
+            {
+                name: 'Klaudia Rawińska',
+                text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusaam,lendus ullam quaerat quasi.',
+                date: new Date('2019-03-09'),
+                rating: 5
+            }
+        ],
         site: 'www.google.pl'
     }
 ];

@@ -1,18 +1,33 @@
 import * as base from '../views/base';
 import * as listView from '../views/list';
 import Companies from '../models/Companies';
-import companyController from './companyController';
+import { navigate } from '../routing/router';
+import state from '../models/state';
 
 export default async function () {
+
     base.clearContent();
+
     const companies = new Companies();
+
     listView.renderWrapper();    
+
     try {
+
         base.renderLoader();
+
         await companies.getCompanies();
+
+        state.companies = companies.list;
+
         base.removeLoader();
+
         listView.renderCompanies(companies.list);
+        
         addEvents();
+
+        console.log(state);
+
     } catch (error) {
         console.log(error);
     }
@@ -23,7 +38,8 @@ function addEvents () {
         const target = ev.target;
 
         if(target.classList.contains(base.elStr.listCompanyLink)) {
-            companyController(target.dataset.id)
+            ev.preventDefault()
+            navigate(`/company:${target.getAttribute('href').replace('#','')}`);
         }
     })
 }

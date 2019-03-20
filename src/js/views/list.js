@@ -39,7 +39,7 @@ const renderOffert = offert => {
                 </figure>
                 <div class="list__content">
                     <h2 class="heading-secondary u-mb-big">
-                        <span class="list__offer-link" data-id="${offert.id}">${offert.title}</span>
+                        <a class="list__offer-link" href="#${offert.id}">${offert.title}</a>
                     </h2>
                     <a href="https://www.google.com/maps?q=${offert.location}" target="_blank" class="list__location">
                         <svg class="icon icon--primary">
@@ -76,7 +76,7 @@ const renderCompany = company => {
                 </figure>
                 <div class="list__content">
                     <h2 class="heading-secondary u-mb-big">
-                        <span class="list__company-link" data-id="${company.id}">${company.name}</span>
+                        <a class="list__company-link" href="#${company.id}">${company.name}</a>
                     </h2>
                     <p class="paragraph">Polecenia: <span class="text-bold">${company.likes}</span></p>
                     <p class="list__category-box">${renderTags(company.tags)}</p>
@@ -124,7 +124,7 @@ export const renderAside = aside => {
     document.querySelector(`.${base.elStr.list}`).insertAdjacentHTML('beforebegin', markup);
 };
 
-export const renderOfferts = offerts => {
+export const renderOffers = offerts => {
     offerts.forEach(renderOffert);
 };
 

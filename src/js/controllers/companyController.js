@@ -1,11 +1,14 @@
 import * as base from '../views/base';
-import Company from '../models/Company';
 import * as companyView from '../views/company';
+import Company from '../models/Company';
+import state from '../models/state';
 
 export default async function (id = 1) {
     base.clearContent();
     base.renderLoader();
-    const company = new Company(id);
+
+    console.info(state);
+    const company = new Company(state.companyId || id);
     try {
         await company.getCompany();
         base.removeLoader();

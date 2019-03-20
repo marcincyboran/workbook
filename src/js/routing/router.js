@@ -1,9 +1,9 @@
 import { el } from '../views/base';
 
-const navigate = (pathName) => {
-    const clearPath = pathName.replace(':','');
+export const navigate = (pathName) => {    
     const matches = pathName.match(/:(.*(?=\/))|:(.*)/gi);
-    const firstParam = matches ? matches[0].replace(':','') : '' ;
+    const firstParam = matches ? matches[0].replace(':','') : undefined ;
+    const clearPath = pathName.replace(`:${firstParam}`,'');
 
     const event = new CustomEvent('locationChanged', {
         detail: {
@@ -18,7 +18,7 @@ const navigate = (pathName) => {
 
 el.topNavigation.addEventListener('click', (e) => {
     // sprawdzić czy można queryselectorall(top-nav a).click bez tego na dole
-    if (e.target !== e.currentTarget && e.target.getAttribute('href')) {
+    if (e.target.getAttribute('href')) {
         e.preventDefault();
         navigate(e.target.getAttribute('href'));    
     }

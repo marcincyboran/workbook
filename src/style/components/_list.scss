@@ -28,7 +28,6 @@
         display: flex;
         min-height: 10rem;
         align-items: stretch;
-        // margin-bottom: 1rem;
     }
     
     &__image-box {
@@ -66,22 +65,42 @@
         }
     }
 
-    &__company-link {
+    &__company-link,
+    &__offer-link {
         cursor: pointer;
-        color: var(--color-primary);
+        text-decoration: none;
 
-        &:hover {
-            color: var(--color-secondary);
+        // &::before {
+        //     content: '';
+        //     display: block;
+        //     height: 10px;
+        //     margin-right: .5rem;
+        //     border-bottom: 2px solid currentColor;
+        // }
+    }
+
+
+    
+    &__company-link {
+
+        &:link,
+        &:visited {
+            color: var(--color-primary);
         }
+
+        &:hover,
+        &:active { color: var(--color-secondary); }
     }
 
     &__offer-link {
-        cursor: pointer;
-        color: var(--color-secondary);
 
-        &:hover {
-            color: var(--color-primary);
+        &:link,
+        &:visited {
+            color: var(--color-secondary);
         }
+
+        &:hover,
+        &:active { color: var(--color-primary); }
     }
 
     &__category-box {

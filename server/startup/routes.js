@@ -1,6 +1,6 @@
 const express = require('express');
 
-const offertsRouter = require('../routes/offerts');
+const offersRouter = require('../routes/offers');
 const companiesRouter = require('../routes/companies');
 const authRouter = require('../routes/auth');
 const usersRouter = require('../routes/users');
@@ -11,7 +11,7 @@ module.exports = function (app) {
     app.use(express.json());
 
     app.use('/api/base', baseRouter);
-    app.use('/api/offerts', offertsRouter);
+    app.use('/api/offers', offersRouter);
     app.use('/api/companies', companiesRouter);
     app.use('/api/auth', authRouter);
     app.use('/api/auth', authRouter);

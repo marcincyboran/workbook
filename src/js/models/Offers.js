@@ -1,14 +1,13 @@
 import axios from 'axios';
 
-export default class Offerts {
+export default class Offers {
     constructor(query = null) {
         this.query = query
     }
 
-    async getOfferts() {
+    async getOffers() {
         try {
-            // `${ (this.query) ? '?' + this.query : '' }`
-            const result = await axios.get(`/api/offerts`);
+            const result = await axios.get(`/api/offers`);
             this.list = result.data.offers;
             this.aside = result.data.aside;
             console.log(result);

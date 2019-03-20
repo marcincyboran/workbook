@@ -1,5 +1,6 @@
-import state from '../index';
+import state from '../models/state';
 import axios from 'axios';
+
 
 export const el = {
     topNavigation: document.querySelector('.top-nav'),
@@ -12,6 +13,7 @@ export const elStr = {
     loader: 'loader',
     content: 'content',
     listCompanyLink: 'list__company-link',
+    listOfferLink: 'list__offer-link',
 };
 
 export function clearContent() {

@@ -26,13 +26,19 @@ button {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     border: none;
-}
-
-input {
     color: inherit;
 }
 
+a:focus,
+input:active,
+button:active,
 input:focus,
 button:focus {
     outline: none;
 }
+
+button::-moz-focus-inner {
+    border: 0;
+}
+  
+  

@@ -7,10 +7,10 @@ export default class Offers {
 
     async getOffers() {
         try {
-            const result = await axios.get(`/api/offers`);
-            this.list = result.data.offers;
-            this.aside = result.data.aside;
-            console.log(result);
+            const response = await axios.get(`/api/offers`);
+            this.list = response.data.offers;
+            this.aside = response.data.aside;
+            console.log(response);
         } catch (error) {
             console.warn(error);
         }

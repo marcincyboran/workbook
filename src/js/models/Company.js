@@ -7,9 +7,9 @@ export default class Company {
 
     async getCompany() {
         try {
-            const result = await axios(`/api/companies/${this.id}`);
-            this.data = result.data;
-            console.log(result.data);
+            const response = await axios(`/api/companies/${this.id}`);
+            this.data = response.data;
+            console.log(response.data);
         } catch (error) {
             console.log(error);
         }

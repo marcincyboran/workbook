@@ -1,11 +1,14 @@
 import axios from 'axios';
 
-export default class Register {
+export default class Registration {
     constructor() {
 
     }
 
-    async createUser() {
-
+    async createUser( dataObj ) {
+        const response = await axios.post('/api/users/add', {
+            data: dataObj
+        });
+        console.log(response);
     }
 }

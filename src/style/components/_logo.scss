@@ -1,18 +1,20 @@
 .logo {
     &__text {
 
-        color: var(--color-grey-light-4);
         font-size: 3rem;
+        color: var(--color-grey-light-4);
         font-weight: 300;
         letter-spacing:-1px;
         text-decoration: none;
         
-        @supports (-webkit-background-clip: text) or (background-clip: text) {
-            background: linear-gradient(to right, var(--color-primary), var(--color-tertiary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            opacity: .75;
+        &--color {
+            @supports (-webkit-background-clip: text) or (background-clip: text) {
+                color: transparent;
+                background: linear-gradient(to right, var(--color-primary), var(--color-tertiary));
+                -webkit-background-clip: text;
+                background-clip: text;
+                opacity: .75;
+            }
         }
         
         &--primary {
@@ -26,7 +28,6 @@
     
         &--large {
             font-size: 5rem;
-            opacity: 1;
         }
         
     }

@@ -7,8 +7,8 @@ export default class Copmanies {
 
     async getCompanies() {
         try {
-            const result = await axios.get(`/api/companies`);
-            this.list = result.data;
+            const response = await axios.get(`/api/companies`);
+            this.list = response.data;
         } catch (error) {
             console.log(error)
         }

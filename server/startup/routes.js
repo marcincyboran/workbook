@@ -8,7 +8,6 @@ const baseRouter = require('../routes/base');
 
 module.exports = function (app) {
 
-    app.use(express.json());
 
     app.use('/api/base', baseRouter);
     app.use('/api/offers', offersRouter);

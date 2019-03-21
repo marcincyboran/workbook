@@ -7,3 +7,8 @@
     0% { transform: rotate(0); }
     100% { transform: rotate(360deg); }
 }
+
+@keyframes showError {
+    0% { display: inline-block; opacity: 0 }
+    100% {opacity: 1}
+}

@@ -14,6 +14,7 @@ export const elStr = {
     content: 'content',
     listCompanyLink: 'list__company-link',
     listOfferLink: 'list__offer-link',
+    registerSection: 'register'
 };
 
 export function clearContent() {

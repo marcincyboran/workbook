@@ -46,7 +46,9 @@ async function loadController() {
     }
 };
 
-offersCtrl()
+// offersCtrl();
+registrationCtrl();
+
 
 
 // TODO

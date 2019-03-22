@@ -67,9 +67,9 @@ class validateForm {
         this.inputs = form.querySelectorAll('input'),
         this.options = Object.assign({}, {
             errorClass: 'error',
-            textReg: new RegExp('^[a-zA-ZąĄćĆęĘłŁńŃóÓśŚźżŻŹ]{1,}$', 'g'),
+            textReg: new RegExp('^[a-zA-ZąĄćĆęĘłŁńŃóÓśŚźżŻŹ]{1,}$', 'i'),
             emailReg: new RegExp('^[0-9a-z_.-]+@[0-9a-z.-]+\.[a-z]{2,3}$', 'i'),
-            passwordReg: new RegExp('^[a-zA-Z0-9ąĄćĆęĘłŁńŃóÓśŚźżŻŹ]{8,14}$', 'g')
+            passwordReg: new RegExp('^[a-zA-Z0-9ąĄćĆęĘłŁńŃóÓśŚźżŻŹ]{8,14}$', 'i')
         }, options)
     };
 
@@ -110,6 +110,7 @@ class validateForm {
         const reg = this.getRegExp(input, this.options.textReg);
         if (!reg.test(input.value)) inputIsValid = false;
         if (input.value === '') inputIsValid = false;
+        console.log();
         return this.fieldValidation(input, inputIsValid);
     };
 
@@ -122,33 +123,10 @@ class validateForm {
     };
 
     testPassword(input) {
-        // console.log(input);
-        // console.log(input.value);
-
-        // PROBLEM test pass 
         let inputIsValid = true;
-
         const reg = this.getRegExp(input, this.options.passwordReg);
-        // console.log(reg);
-
-        const test = reg.test(input.value);
-        console.log(!test);
-        if (!test) {
-            console.log(reg);
-            console.log(input.value);
-            inputIsValid = false;
-        };
-
-        // console.log(inputIsValid);
-        // console.log(!reg.test(input.value));
-        // console.log(input.value);
-        if (input.value === '') {
-            inputIsValid = false;
-        };
-
-        // console.log(inputIsValid);
-        // console.log(input.value);
-
+        if (!reg.test(input.value)) inputIsValid = false;
+        if (input.value === '') inputIsValid = false;
         return this.fieldValidation(input, inputIsValid);
     };
 
@@ -160,10 +138,10 @@ class validateForm {
     fieldValidation(input, inputIsValid) {
         if (inputIsValid) {
             input.classList.remove(this.options.errorClass);
-            return true;
+            return false;
         } else {
             input.classList.add(this.options.errorClass);
-            return false;
+            return true;
         }
     };
 

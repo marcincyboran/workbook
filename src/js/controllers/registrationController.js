@@ -52,13 +52,10 @@ function validate(f) {
 
     const form = new validateForm(f);
     form.noValidate();
-    form.checkInput();
+    form.assignEvents();
 
-    console.log(form);
-    console.log(f);
-    // const reg = ne.w RegExp('^[a-zA-ZąĄćĆęĘłŁńŃóÓśŚźżŻ]{3,}$', 'g');
-    // const mailReg = new RegExp('^[0-9a-z_.-]+@[0-9a-z.-]+\.[a-z]{2,3}$', 'i');
-
+    // console.log(form);
+    // console.log(f);
 
     // const inputs = f.querySelectorAll('input');
     // inputs.forEach(input => input.classList.add('error'));
@@ -70,6 +67,9 @@ class validateForm {
         this.inputs = form.querySelectorAll('input'),
         this.options = Object.assign({}, {
             errorClass: 'error',
+            textReg: new RegExp('^[a-zA-ZąĄćĆęĘłŁńŃóÓśŚźżŻŹ]{1,}$', 'g'),
+            emailReg: new RegExp('^[0-9a-z_.-]+@[0-9a-z.-]+\.[a-z]{2,3}$', 'i'),
+            passwordReg: new RegExp('^[a-zA-Z0-9ąĄćĆęĘłŁńŃóÓśŚźżŻŹ]{8,14}$', 'g')
         }, options)
     };
 
@@ -77,11 +77,99 @@ class validateForm {
         this.form.setAttribute('novalidate', 'novalidate');
     };
 
-    checkInput() {
+    assignEvents() {
         this.inputs.forEach(input => {
-            console.log(input)
+            const type = input.type.toLowerCase();
+
+            if(type === 'text') {
+                input.addEventListener('blur', ev => {
+                    this.testText(ev.target);
+                });
+            };
+            if(type === 'email') {
+                input.addEventListener('blur', ev => {
+                    this.testEmail(ev.target);
+                });
+            };
+            if(type === 'password') {
+                input.addEventListener('blur', ev => {
+                    this.testPassword(ev.target);
+                });
+            };
+            if(type === 'checkbox') {
+                input.addEventListener('click', ev => {
+                    this.testCheckbox(ev.target);
+                });
+            };
         });
 
-    }
+    };
+
+    testText(input) {
+        let inputIsValid = true;
+        const reg = this.getRegExp(input, this.options.textReg);
+        if (!reg.test(input.value)) inputIsValid = false;
+        if (input.value === '') inputIsValid = false;
+        return this.fieldValidation(input, inputIsValid);
+    };
+
+    testEmail(input) {
+        let inputIsValid = true;
+        const reg = this.getRegExp(input, this.options.emailReg);
+        if (!reg.test(input.value)) inputIsValid = false;
+        if (input.value === '') inputIsValid = false;
+        return this.fieldValidation(input, inputIsValid);
+    };
+
+    testPassword(input) {
+        // console.log(input);
+        // console.log(input.value);
+
+        // PROBLEM test pass 
+        let inputIsValid = true;
+
+        const reg = this.getRegExp(input, this.options.passwordReg);
+        // console.log(reg);
+
+        const test = reg.test(input.value);
+        console.log(!test);
+        if (!test) {
+            console.log(reg);
+            console.log(input.value);
+            inputIsValid = false;
+        };
+
+        // console.log(inputIsValid);
+        // console.log(!reg.test(input.value));
+        // console.log(input.value);
+        if (input.value === '') {
+            inputIsValid = false;
+        };
+
+        // console.log(inputIsValid);
+        // console.log(input.value);
+
+        return this.fieldValidation(input, inputIsValid);
+    };
+
+    testCheckbox(input) {
+        console.log('test checkbox');
+        console.log(input);
+    };
+
+    fieldValidation(input, inputIsValid) {
+        if (inputIsValid) {
+            input.classList.remove(this.options.errorClass);
+            return true;
+        } else {
+            input.classList.add(this.options.errorClass);
+            return false;
+        }
+    };
+
+    getRegExp(input, backupPattern) {
+        const pattern = input.getAttribute('pattern');
+        return (pattern !== null) ? new RegExp(pattern, 'gi') : backupPattern;
+    };
 
 }

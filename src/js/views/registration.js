@@ -17,18 +17,18 @@ export const renderSection = () => {
                         <div class="form__group u-mb-big">
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Imię</label>
-                                <input type="text" class="form__input" name="name" required value="Imię">
-                                <span class="form__input-error" title="Error as fasd fasdf asd fasdf asdf asdf asf asdf asd fdas occu  sdfgdf gdsfg dsg dsgdsf gsdred">Error as fasd fasdf asd fasdf asdf asdf asf asdf asd fdas occu  sdfgdf gdsfg dsg dsgdsf gsdred</span>
+                                <input type="text" class="form__input" name="name" required pattern="^[a-zA-ZąĄćĆęĘłŁńŃóÓśŚźżŻŹ]{3,}$" value="Imię">
+                                <span class="form__input-error">Tylko polskie znaki a-Z</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Nazwisko</label>
                                 <input type="text" class="form__input" name="surname" required value="Nazwisko">
-                                <span class="form__input-error">Error occured</span>
+                                <span class="form__input-error">Tylko polskie znaki a-Z</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">E-mail</label>
                                 <input type="email" class="form__input" name="email" required value="email@o2.pl">
-                                <span class="form__input-error">Error occured</span>
+                                <span class="form__input-error">Nieprawidłowy adres e-mail</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Tel.</label>
@@ -37,13 +37,13 @@ export const renderSection = () => {
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Hasło</label>
-                                <input type="password" class="form__input" name="pass" required autocomplete="current-password" value="12345">
-                                <span class="form__input-error">Error occured</span>
+                                <input type="password" class="form__input" name="pass" required autocomplete="current-password">
+                                <span class="form__input-error">Hasło musi zawierać od 8 do 14 znaków (a-Z oraz 0-9)</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Miasto</label>
                                 <input type="text" class="form__input" name="loc" required value="Lokalizacja">
-                                <span class="form__input-error">Error occured</span>
+                                <span class="form__input-error">Tylko miejscowość</span>
                             </div>
                         </div>
                         <div class="form__group u-mb-huge">
@@ -66,17 +66,17 @@ export const renderSection = () => {
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Imię</label>
                                 <input type="text" class="form__input" name="name" required value="Imię">
-                                <span class="form__input-error">Error occured</span>
+                                <span class="form__input-error">Tylko polskie znaki a-Z</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Nazwisko</label>
                                 <input type="text" class="form__input" name="surname" required value="Nazwisko">
-                                <span class="form__input-error">Error occured</span>
+                                <span class="form__input-error">Tylko polskie znaki a-Z</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">E-mail</label>
                                 <input type="email" class="form__input" name="email" required value="email@o2.pl">
-                                <span class="form__input-error">Error occured</span>
+                                <span class="form__input-error">Nieprawidłowy adres e-mail</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Tel.</label>
@@ -85,13 +85,13 @@ export const renderSection = () => {
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Hasło</label>
-                                <input type="password" class="form__input" name="pass" required autocomplete="current-password" value="12345">
-                                <span class="form__input-error">Error occured</span>
+                                <input type="password" class="form__input" name="pass" required autocomplete="current-password" >
+                                <span class="form__input-error">Hasło musi zawierać od 8 do 14 znaków (a-Z oraz 0-9)</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Siedziba</label>
                                 <input type="text" class="form__input" name="loc" required value="Lokalizacja">
-                                <span class="form__input-error">Error occured</span>
+                                <span class="form__input-error">Tylko miejscowość</span>
                             </div>
                         </div>
                         <div class="form__group u-mb-huge">

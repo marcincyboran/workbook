@@ -16,14 +16,27 @@ export default function () {
 
 function addEvents() {
     const forms = document.querySelectorAll(`.${base.elStr.registerSection} form`);
+    const switchers = document.querySelectorAll(`.${base.elStr.registerNavButton}`);
 
     forms.forEach(el => {
-        el.addEventListener('submit', (ev) => {
+        el.addEventListener('submit', ev => {
             ev.preventDefault();
             createAccount(ev.target);
         });
     });
 
+    switchers.forEach(el => {
+        el.addEventListener('click', ev => {
+            ev.preventDefault();
+            switchForms(ev.target);
+        });
+    });
+
+};
+
+function switchForms(button) {
+    button.classList.add(base.elStr.registerNavActive);
+    console.log(button)
 };
 
 function createAccount(form) {

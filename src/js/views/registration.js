@@ -4,11 +4,9 @@ export const renderSection = () => {
     const markup = `
         <section class="register">
             <div class="register__nav">
-                <!-- zmienić na button type button -->
-                <label for="toggle-register" class="register__nav-button register__nav-button--active">Użytkownik</label>
-                <label for="toggle-register" class="register__nav-button">Firma</label>
+                <a class="register__nav-button register__nav-button--active" data-form="user">Użytkownik</a>
+                <a class="register__nav-button" data-form="company">Firma</a>
             </div>
-            <input class="register__switcher" type="checkbox" id="toggle-register">
             <div class="register__content">
                 <div class="register__block register__block--user">
                     <div class="register__bg-img register__bg-img--user">&nbsp;</div>

@@ -19,19 +19,21 @@
             line-height: 1;
             font-weight: 600;
             letter-spacing: 1px;
-            background-color: var(--color-secondary);
+            background-color: var(--color-secondary-light);
             box-shadow: var(--shadow-small-middle);
             cursor: pointer;
             transition: all .6s;
 
             &:not(&--active):hover {
-                background-color: var(--color-secondary-dark);
+                background-color: var(--color-secondary);
             }
 
             &--active {
                 background-color: var(--color-tertiary-light);
                 color: var(--color-grey-light-1);
-                animation: active-button .8s infinite alternate;
+                transform-origin: bottom;
+                transform: scale(1.1);
+                // animation: active-button .8s infinite alternate;
             }
 
             &:not(:last-child) {
@@ -56,10 +58,10 @@
         
         transition: transform .6s ease-in-out;
         
-        // make position of the bigest element relative
+        // make bigger element relative for height
         &--user { transform: translateX(0); }
         &--company { 
-            position: relative; 
+            position: relative;
             transform: translateX(100%);
         }
 
@@ -70,12 +72,8 @@
         }
     }
 
-    // testy wywalic te 3 linie + input z html 
-    &__switcher { display: none; }
-    &__switcher:checked + &__content > &__block--user { transform: translateX(-100%) }
-    &__switcher:checked + &__content > &__block--company { transform: translateX(0) }
-    // &__content--active-company &__block--user { transform: translateX(-100%) }
-    // &__content--active-company &__block--company { transform: translateX(0) }
+    &__content--active-company &__block--user { transform: translateX(-100%) }
+    &__content--active-company &__block--company { transform: translateX(0) }
 
     &__bg-img {
         flex: 0 1 25%;

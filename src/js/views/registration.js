@@ -15,32 +15,38 @@ export const renderSection = () => {
                         <div class="form__group u-mb-big">
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Imię</label>
-                                <input type="text" class="form__input" name="name" required pattern="^[a-zA-ZąĄćĆęĘłŁńŃóÓśŚźżŻŹ]{3,}$" value="Imię">
+                                <input type="text" class="form__input" name="name" required pattern="^[a-zA-ZąĄćĆęĘłŁńŃóÓśŚźżŻŹ]{3,30}$" value="Imię">
+                                <svg class="form__valid-icon"><use href="./assets/svgs/sprite.svg#icon-check"></use></svg>
                                 <span class="form__input-error">Tylko polskie znaki a-Z</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Nazwisko</label>
                                 <input type="text" class="form__input" name="surname" required value="Nazwisko">
+                                <svg class="form__valid-icon"><use href="./assets/svgs/sprite.svg#icon-check"></use></svg>                                
                                 <span class="form__input-error">Tylko polskie znaki a-Z</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">E-mail</label>
                                 <input type="email" class="form__input" name="email" required value="email@o2.pl">
+                                <svg class="form__valid-icon"><use href="./assets/svgs/sprite.svg#icon-check"></use></svg>                                
                                 <span class="form__input-error">Nieprawidłowy adres e-mail</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Tel.</label>
-                                <input type="text" class="form__input" name="tel" required value="123456789">
+                                <input type="tel" class="form__input" name="tel" required pattern="^[0-9\ \-\+]{9,30}$" value="123456789">
+                                <svg class="form__valid-icon"><use href="./assets/svgs/sprite.svg#icon-check"></use></svg>                                
                                 <span class="form__input-error">Error occured</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Hasło</label>
                                 <input type="password" class="form__input" name="pass" required autocomplete="current-password">
+                                <svg class="form__valid-icon"><use href="./assets/svgs/sprite.svg#icon-check"></use></svg>                                
                                 <span class="form__input-error">Hasło musi zawierać od 8 do 14 znaków (a-Z oraz 0-9)</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Miasto</label>
                                 <input type="text" class="form__input" name="loc" required value="Lokalizacja">
+                                <svg class="form__valid-icon"><use href="./assets/svgs/sprite.svg#icon-check"></use></svg>                                
                                 <span class="form__input-error">Tylko miejscowość</span>
                             </div>
                         </div>
@@ -64,31 +70,37 @@ export const renderSection = () => {
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Imię</label>
                                 <input type="text" class="form__input" name="name" required value="Imię">
+                                <svg class="form__valid-icon"><use href="./assets/svgs/sprite.svg#icon-check"></use></svg>                                
                                 <span class="form__input-error">Tylko polskie znaki a-Z</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Nazwisko</label>
                                 <input type="text" class="form__input" name="surname" required value="Nazwisko">
+                                <svg class="form__valid-icon"><use href="./assets/svgs/sprite.svg#icon-check"></use></svg>                                
                                 <span class="form__input-error">Tylko polskie znaki a-Z</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">E-mail</label>
                                 <input type="email" class="form__input" name="email" required value="email@o2.pl">
+                                <svg class="form__valid-icon"><use href="./assets/svgs/sprite.svg#icon-check"></use></svg>                                
                                 <span class="form__input-error">Nieprawidłowy adres e-mail</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Tel.</label>
-                                <input type="text" class="form__input" name="tel" required value="123456789">
+                                <input type="tel" class="form__input" name="tel" required value="123456789">
+                                <svg class="form__valid-icon"><use href="./assets/svgs/sprite.svg#icon-check"></use></svg>                                
                                 <span class="form__input-error">Error occured</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Hasło</label>
                                 <input type="password" class="form__input" name="pass" required autocomplete="current-password" >
+                                <svg class="form__valid-icon"><use href="./assets/svgs/sprite.svg#icon-check"></use></svg>                                
                                 <span class="form__input-error">Hasło musi zawierać od 8 do 14 znaków (a-Z oraz 0-9)</span>
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Siedziba</label>
                                 <input type="text" class="form__input" name="loc" required value="Lokalizacja">
+                                <svg class="form__valid-icon"><use href="./assets/svgs/sprite.svg#icon-check"></use></svg>                                
                                 <span class="form__input-error">Tylko miejscowość</span>
                             </div>
                         </div>
@@ -116,4 +128,13 @@ export const renderSection = () => {
         </section>
     `;
     base.el.content.insertAdjacentHTML('beforeend', markup);
+};
+
+export const switchForms = (current, buttons) => {
+    buttons.forEach(button => button.classList.remove(base.elStr.registerNavActive));
+    current.classList.add(base.elStr.registerNavActive);
+
+    const content = document.querySelector(`.${base.elStr.registerContent}`);
+    const company = base.elStr.registerContentCompany;
+    (current.dataset.form === 'company') ? content.classList.add(company) : content.classList.remove(company);
 };

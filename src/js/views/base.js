@@ -14,9 +14,11 @@ export const elStr = {
     content: 'content',
     listCompanyLink: 'list__company-link',
     listOfferLink: 'list__offer-link',
-    registerSection: 'register',
+    registerContent: 'register__content',
+    registerContentCompany: 'register__content--active-company',
     registerNavButton: 'register__nav-button',
-    registerNavActive: 'register__nav--active'
+    registerNavActive: 'register__nav-button--active',
+    formBlock: 'form__block'
 };
 
 export function clearContent() {

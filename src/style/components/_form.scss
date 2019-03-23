@@ -7,7 +7,7 @@
         padding: 0 4rem;
 
         &--submit {
-            // only if text-align center from utility class, else add it
+            // only if text-align center from utility class, else add it here
             display: block;
         }
     }
@@ -65,10 +65,10 @@
     &__checkbox { display: none; }
     &__checkbox:checked + &__checkmark::before {
         left: calc(50% - .2rem);
-        background-color: var(--color-primary-light);
+        background-color: rgba($color-primary-light, .8);
     }
     &__checkbox:checked + &__checkmark{
-        border: 2px solid var(--color-primary-light);
+        border: 2px solid rgba($color-primary-light, .8);
     }
 
     &__block {
@@ -84,7 +84,25 @@
             margin-bottom: unset;
         }
     }
-    
+
+    &__valid-icon {
+        visibility: none;
+        opacity: 0;
+        width: 2.2rem;
+        height: 2.2rem;
+        padding: .3rem;
+        position: absolute;
+        bottom: 1.8rem;
+        right: -1rem;
+        background-color: var(--color-white);
+        border-radius: 50%;
+        border: var(--border-lighter);
+        border-color: var(--color-secondary-light);
+        transform: translateY(50%);
+        fill: rgba($color-secondary-light, .75);
+        transition: opacity .2s ease-in;
+    }
+
     &__input {
         display: block;
         width: 100%;
@@ -93,9 +111,10 @@
         border-radius: var(--default-border-radius);
         border: var(--border-lighter);
         box-shadow: var(--shadow-form);
+        transition: border-color .2s ease-in-out;
         
         &:focus {
-            border-color: var(--color-secondary-light);
+            border-color: var(--color-secondary) !important;
             box-shadow: var(--shadow-small-middle);
         }
 
@@ -106,34 +125,27 @@
             bottom: 0;
             padding: 0 1rem;
             color: var(--color-primary);
-            font-weight: 300;
+            text-align: right;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             transform: translateY(100%);
             visibility: hidden;
             opacity: 0;
-            transition: opacity .2s ease-in;
+            transition: opacity .2s ease-in-out;
         }
     }
 
-    &__input.error + &__input-error {
+    &__block.valid &__valid-icon {
+        visibility: visible;
+        opacity: 1;
+    }
+    &__block.error  &__input-error {
         visibility: visible;
         opacity: 1;
     }
 
-    &__error
+    &__block.valid &__input { border-color: rgba($color-secondary-light, .75); }
+    &__block.error &__input { border-color: rgba($color-primary-light, .75); }
     
-    &__submit {
-        display: inline-block;
-        border-radius: var(--default-border-radius);
-        background-color: var(--color-secondary);
-        color: var(--color-white);
-        font-size: 1.2rem;
-        line-height: 1;
-        font-weight: 600;
-        letter-spacing: 1px;
-        padding: 1.2rem 2.4rem;
-        cursor: pointer;
-    }
 }

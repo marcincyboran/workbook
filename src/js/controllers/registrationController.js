@@ -11,24 +11,22 @@ export default function () {
     registrationView.renderSection();
     base.removeLoader();
 
-    init();
+    addEvents();
     
 };
 
-function init() {
+function addEvents() {
     const forms = document.querySelectorAll(`.${base.elStr.registerContent} form`);
     const switchers = document.querySelectorAll(`.${base.elStr.registerNavButton}`);
 
     forms.forEach(el => {
-        const form = new ValidateForm(el);
-        form.noValidate();
-        form.assignEvents();
+        const form = new Form(el);
+        form.init();
 
         el.addEventListener('submit', ev => {
             ev.preventDefault();
             if (!form.validForm()) return;
-            console.log('Form is valid, sending...!');
-            createAccount(el);
+            createAccount(form);
             // afterSend();
         });
     });
@@ -42,29 +40,20 @@ function init() {
 
 };
 
-function createAccount(form) {
-    // Check type
-    // const type = form.dataset.form;
+async function createAccount(form) {
+    const type = form.form.dataset.form;
+    const dataObj = form.getValues();
 
-    // Validate fields
-    // validate(form);
-
-
-    // create obj
-    // const data = {
-    //     type: type,
-    // }
-
-    // Send request
-    // const registration = new Registration();
-    // registration.createUser(data);
+    const registration = new Registration();
+    const response = await registration.createAccount(dataObj, type);
+    console.log(response);
 
     // Validate response
     // - hide form
     // - show message && redirect 5sec after
 };
 
-class ValidateForm {
+class Form {
     constructor(form, options = {} ) {
         this.form = form,
         this.inputs = form.querySelectorAll('input'),
@@ -75,85 +64,65 @@ class ValidateForm {
             emailReg: new RegExp('^[0-9a-z_.-]+@[0-9a-z.-]+\.[a-z]{2,3}$', 'i'),
             passwordReg: new RegExp('^[a-zA-Z0-9ąĄćĆęĘłŁńŃóÓśŚźżŻŹ]{8,14}$', 'i'),
             phoneReg: new RegExp('^[0-9\ \-\+]{9,30}$')
-        }, options)
+        }, options),
+        this.values = {}
     };
-
-    noValidate() {
+    
+    init() {
         this.form.setAttribute('novalidate', 'novalidate');
-    };
 
-    assignEvents() {
         this.inputs.forEach(input => {
             const type = input.type.toLowerCase();
-
-            if (type !== 'checkbox' || type !== 'radio') {
-                input.addEventListener('blur', () => {
-                    if (type === 'text') {
-                        this.testText(input);
-                    } else if (type === 'tel') {
-                        this.testPhone(input);
-                    } else if (type === 'email') {
-                        this.testEmail(input);
-                    } else if (type === 'password') {
-                        this.testPassword(input);
-                    }
-                });
-            } else {
-                input.addEventListener('click', () => {
-                    if (type === 'checkbox') {
-                        this.testCheckbox(input);
-                    }
-                    // else if (type === 'radio') {
-                    //     this.testRadio(input);
-                    // }
-                });
-            }
+            input.addEventListener('blur', () => {
+                if (type === 'text') {
+                    this.testText(input);
+                } else if (type === 'tel') {
+                    this.testPhone(input);
+                } else if (type === 'email') {
+                    this.testEmail(input);
+                } else if (type === 'password') {
+                    this.testPassword(input);
+                }
+            });
         });
     };
 
-    testText(input) {
+    getValues() {
+        this.inputs.forEach(input => {
+            const type = input.type.toLowerCase();
+            const isBoolen = (type == 'checkbox' || type == 'radio');
+            this.values[input.name] = (!isBoolen) ? input.value : input.checked;
+        });
+        return this.values;
+    };
+
+    baseTest(input, regExpBackup) {
         let inputIsValid = true;
-        const reg = this.getRegExp(input, this.options.textReg);
+        const pattern = input.getAttribute('pattern');
+        const reg = (pattern !== null) ? new RegExp(pattern, 'i') : regExpBackup;
         if (!reg.test(input.value)) inputIsValid = false;
         if (input.value === '') inputIsValid = false;
-        this.fieldClass(input, inputIsValid);
+        this.changeClasses(input, inputIsValid);
         return inputIsValid;
+    };
+
+    testText(input) {
+        return this.baseTest(input, this.options.textReg);
     };
 
     testEmail(input) {
-        let inputIsValid = true;
-        const reg = this.getRegExp(input, this.options.emailReg);
-        if (!reg.test(input.value)) inputIsValid = false;
-        if (input.value === '') inputIsValid = false;
-        this.fieldClass(input, inputIsValid);
-        return inputIsValid;
+        return this.baseTest(input, this.options.emailReg);
     };
 
     testPassword(input) {
-        let inputIsValid = true;
-        const reg = this.getRegExp(input, this.options.passwordReg);
-        if (!reg.test(input.value)) inputIsValid = false;
-        if (input.value === '') inputIsValid = false;
-        this.fieldClass(input, inputIsValid);
-        return inputIsValid;
+        return this.baseTest(input, this.options.passwordReg);
     };
 
     testPhone(input) {
-        let inputIsValid = true;
-        const reg = this.getRegExp(input, this.options.phoneReg);
-        if (!reg.test(input.value)) inputIsValid = false;
-        if (input.value === '') inputIsValid = false;
-        this.fieldClass(input, inputIsValid);
-        return inputIsValid;   
-    }
-
-    testCheckbox(input) {
-        console.log(input);
-        // console.log('test checkbox');
-        // console.log(input);
+        return this.baseTest(input, this.options.phoneReg);
     };
 
-    fieldClass(input, inputIsValid) {
+    changeClasses(input, inputIsValid) {
         const block = input.closest(`.${base.elStr.formBlock}`);
         if (inputIsValid) {
             block.classList.remove(this.options.errorClass);
@@ -164,41 +133,25 @@ class ValidateForm {
         }
     };
 
-    getRegExp(input, backupPattern) {
-        const pattern = input.getAttribute('pattern');
-        return (pattern !== null) ? new RegExp(pattern, 'gi') : backupPattern;
-    };
-
     validForm() {
         let formIsValid = true;
-
         this.inputs.forEach(input => {
             const type = input.type.toLowerCase();
-
-            if(type === 'text') {
-
-                if(!this.testText(input)) formIsValid = false;
-
-            } else if(type === 'email') {
-
-                if(!this.testEmail(input)) formIsValid = false;
-
-            } else if (type === 'password') {
-
-                if(!this.testPassword(input)) formIsValid = false;
-
-            } else if (type === 'tel') {
-
-                if(!this.testPhone(input)) formIsValid = false;
-
+            switch (type) {
+                case 'text':
+                    if (!this.testText(input)) formIsValid = false;
+                    break;
+                case 'email':
+                    if (!this.testEmail(input)) formIsValid = false;
+                    break;
+                case 'password':
+                    if (!this.testPassword(input)) formIsValid = false;
+                    break;
+                case 'tel':
+                    if (!this.testPhone(input)) formIsValid = false;
+                    break;
             }
-            // if(type === 'checkbox') {
-            //     if(!this.testCheckbox(input)) formIsValid = false;
-            //     // console.log(`Form is valid: ${formIsValid}`)
-            // };
-
         });
         return formIsValid;
     }
-
 }

@@ -10,8 +10,9 @@ router.post('/', (req, res) => {
     res.send('/api/users - adding user');
 });
 
-router.post('/add', async (req, res) => {
+router.post('/add/:type', async (req, res) => {
     console.log(req.body.data);
+    console.log(req.params.type);
     res.send(req.body.data);
 });
 

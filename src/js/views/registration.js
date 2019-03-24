@@ -39,7 +39,7 @@ export const renderSection = () => {
                             </div>
                             <div class="form__block">
                                 <label for="" class="form__label form__label--required">Hasło</label>
-                                <input type="password" class="form__input" name="pass" required autocomplete="current-password">
+                                <input type="password" class="form__input" name="pass" required autocomplete="current-password" value="123123123">
                                 <svg class="form__valid-icon"><use href="./assets/svgs/sprite.svg#icon-check"></use></svg>                                
                                 <span class="form__input-error">Hasło musi zawierać od 8 do 14 znaków (a-Z oraz 0-9)</span>
                             </div>
@@ -53,7 +53,7 @@ export const renderSection = () => {
                         <div class="form__group u-mb-huge">
                             <div class="form__block form__block--full  form__block--nomargin">
                                 <label class="form__label form__label--checkbox">
-                                    <input type="checkbox" class="form__checkbox" id="user-rodo1">
+                                    <input type="checkbox" name="rodo1" class="form__checkbox" id="user-rodo1">
                                     <span class="form__checkmark"></span>Wyrażam zgodę na przetwarzanie moich danych osobowych podanych w formularzu oraz akcjeptuję regulamin.
                                 </label>
                             </div>
@@ -107,13 +107,13 @@ export const renderSection = () => {
                         <div class="form__group u-mb-huge">
                             <div class="form__block form__block--full  form__block--nomargin">
                                 <label class="form__label form__label--checkbox">
-                                    <input type="checkbox" class="form__checkbox" id="user-rodo2">
+                                    <input type="checkbox" name="rodo2" class="form__checkbox" id="user-rodo2">
                                     <span class="form__checkmark"></span>Wyrażam zgodę na przetwarzanie moich danych osobowych podanych w formularzu oraz akcjeptuję regulamin.
                                 </label>
                             </div>
                             <div class="form__block form__block--full form__block--nomargin">
                                 <label class="form__label form__label--checkbox">
-                                    <input type="checkbox" class="form__checkbox" id="user-rodo3">
+                                    <input type="checkbox" name="rodo3" class="form__checkbox" id="user-rodo3">
                                     <span class="form__checkmark"></span>Wyrażam zgodę na otrzymywanie newslettera.
                                 </label>
                             </div>

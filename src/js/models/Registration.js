@@ -5,10 +5,11 @@ export default class Registration {
 
     }
 
-    async createUser( dataObj ) {
-        const response = await axios.post('/api/users/add', {
+    async createAccount( dataObj, type ) {
+        const response = await axios.post(`/api/users/add/${type}`, {
             data: dataObj
         });
         console.log(response);
+        return response.data
     }
 }

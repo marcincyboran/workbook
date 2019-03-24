@@ -9,11 +9,10 @@ const baseRouter = require('../routes/base');
 module.exports = function (app) {
 
 
+    app.use('/api/auth', authRouter);
     app.use('/api/base', baseRouter);
-    app.use('/api/offers', offersRouter);
     app.use('/api/companies', companiesRouter);
-    app.use('/api/auth', authRouter);
-    app.use('/api/auth', authRouter);
+    app.use('/api/offers', offersRouter);
     app.use('/api/users', usersRouter);
 
 }

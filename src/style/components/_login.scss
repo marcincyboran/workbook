@@ -1,0 +1,23 @@
+.login {
+    display: flex;
+    background-color: var(--color-white);
+    border-radius: var(--default-border-radius);
+    box-shadow: var(--shadow-small-middle);
+
+    & > * {
+        padding: calc(2 * var(--default-padding));
+    }
+
+    &-left {
+        flex: 0 1 60%;
+        // background-color: red;
+    }
+
+    &-right {
+        flex: 1;
+        background: linear-gradient(
+            to right bottom,
+            rgba($color-tertiary-light,1),
+            rgba($color-primary-light,1));
+    }
+}

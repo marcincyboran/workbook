@@ -47,7 +47,7 @@ async function loadController() {
 };
 
 // offersCtrl();
-registrationCtrl();
+// registrationCtrl();
 
 
 

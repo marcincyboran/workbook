@@ -18,8 +18,7 @@
                 <nav class="top-bar">
                     
                     <div class="logo">
-                        <a class="logo logo--color" href="/">Work<span class="logo logo--primary">.</span>Book</a>
-                        <!-- <p class="logo__text">Work<span class="logo__text logo__text--primary">.</span>Book</p> -->
+                        <a href="/" class="logo logo--color">Work<span class="logo logo--primary logo__dot">.</span>Book</a>
                     </div>
         
                     <ul class="top-nav">
@@ -77,21 +76,75 @@
 
         <div class="content">
 
-            <section class="login">
+            <section class="login u-mt-fixed">
                 <div class="login-left">
-                    <p class="logo logo--color logo--large u-text-center" href="/">Work<span class="logo logo--primary">.</span>Book</p>
-                    <p class="heading-primary">Rejestracja</p>
-                    <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius dignissimos impedit numquam necessitatibus voluptatibus eligendi laboriosam?</p>
-                    <a href="#lista" class="button button--tertiary button--icon" data-company="1">
+                    <p class="heading-primary heading-primary--primary u-mb-big">Dla CIEBIE</p>
+                    <p class="paragraph paragraph--big u-mb-big">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius dignissimos?</p>
+                    <ul class="u-list u-mb-big">
+                        <li class="u-list__item u-list__item--normal">
+                            <svg class="icon icon--primary"><use href="./assets/svgs/sprite.svg#icon-chevron-down"></use></svg>
+                            Znajdź wykonawcę
+                        </li>
+                        <li class="u-list__item u-list__item--normal">
+                            <svg class="icon icon--primary"><use href="./assets/svgs/sprite.svg#icon-chevron-down"></use></svg>
+                            Dodawaj oferty
+                        </li>
+                        <li class="u-list__item u-list__item--normal">
+                            <svg class="icon icon--primary"><use href="./assets/svgs/sprite.svg#icon-chevron-down"></use></svg>
+                            Oceniaj usługi
+                        </li>
+                    </ul>
+                    <a href="#lista" class="button button--secondary button--icon" data-company="1">
                         <span>Zarejsetruj</span>
                         <svg class="icon"><use href="./assets/svgs/sprite.svg#icon-magnifying-glass"></use></svg>
                     </a>
                 </div>
-                <div class="login-right">
-                    <p class="login-right__heading">LOGIN</p>
+                <div class="login-center u-text-center">
+                    <p class="logo logo--white u-mb-huge">Work<span class="logo logo__dot logo--white">.</span>Book</p>
                     <form action="#login">
-                        
+                        <div class="form__group u-mb-huge">
+                            <div class="form__block form__block--full  form__block--nomargin">
+                                <input type="text" class="form__input" name="e-mail" required placeholder="E-mail">
+                                <svg class="form__valid-icon"><use href="./assets/svgs/sprite.svg#icon-check"></use></svg>
+                                <span class="form__input-error">Błędny adress e-mail</span>
+                            </div>
+                        </div>
+                        <div class="form__group u-mb-huge">
+                            <div class="form__block form__block--full  form__block--nomargin">
+                                <input type="text" class="form__input" name="pass" required placeholder="Hasło">
+                                <svg class="form__valid-icon"><use href="./assets/svgs/sprite.svg#icon-check"></use></svg> 
+                                <span class="form__input-error">Hasło jest niepoprawne</span>
+                            </div>
+                        </div>
+                        <div class="form__group form__group--submit">
+                            <a href="#submit" class="button button--white button--icon" data-company="1">
+                                <span>Zaloguj</span>
+                                <svg class="icon rotate270"><use href="./assets/svgs/sprite.svg#icon-chevron-down"></use></svg>
+                            </a>
+                        </div>
                     </form>
+                </div>
+                <div class="login-right u-text-right">
+                    <p class="heading-primary heading-primary--primary u-mb-big ">Dla FIRM</p>
+                    <p class="paragraph paragraph--big u-mb-big">Lorem ipsum dolor sit amet, consectetur adipisicmos impedit numquam necessitatibus voluptatibus eligendi laboriosam?</p>
+                    <ul class="u-list u-list--reversed u-mb-big">
+                        <li class="u-list__item u-list__item--normal">
+                            <svg class="icon icon--primary"><use href="./assets/svgs/sprite.svg#icon-chevron-down"></use></svg>
+                            Przedstaw firmę
+                        </li>
+                        <li class="u-list__item u-list__item--normal">
+                            <svg class="icon icon--primary"><use href="./assets/svgs/sprite.svg#icon-chevron-down"></use></svg>
+                            Dodawaj oferty
+                        </li>
+                        <li class="u-list__item u-list__item--normal">
+                            <svg class="icon icon--primary"><use href="./assets/svgs/sprite.svg#icon-chevron-down"></use></svg>
+                            Przedstawiaj projkety
+                        </li>
+                    </ul>
+                    <a href="#lista" class="button button--secondary button--icon" data-company="1">
+                        <span>Zarejsetruj</span>
+                        <svg class="icon"><use href="./assets/svgs/sprite.svg#icon-magnifying-glass"></use></svg>
+                    </a>
                 </div>
             </section>
 
@@ -120,8 +173,7 @@
                     <span>Project based on Pracuj.pl</span>
                 </div>
                 <div class="footer__logo u-text-center">
-                    <!-- make it a link -->
-                    <p class="logo logo--white logo--large">Work<span class="logo logo--primary">.</span>Book</p>
+                    <a href="/" class="logo logo--white logo--large">Work<span class="logo logo--white logo__dot">.</span>Book</a>
                 </div>
                 <div class="footer__socials">
                     <a href="#facebook" class="footer__socials-item footer__socials-item--facebook">

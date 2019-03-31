@@ -1,23 +1,47 @@
 .login {
     display: flex;
     background-color: var(--color-white);
-    border-radius: var(--default-border-radius);
+    border-radius: calc(2 * var(--default-border-radius));
     box-shadow: var(--shadow-small-middle);
 
-    & > * {
-        padding: calc(2 * var(--default-padding));
-    }
-
-    &-left {
-        flex: 0 1 60%;
-        // background-color: red;
-    }
-
+    &-left,
     &-right {
+        flex: 0 1 30%;
+        padding: calc(2 * var(--default-padding));
+
+    }
+    &-left {
+        padding-right: calc(3 * var(--default-padding));
+    
+    }
+    &-right {
+        padding-left: calc(3 * var(--default-padding));
+    } 
+
+    &-center {
         flex: 1;
+        padding:
+            calc(2 * var(--default-padding)) 
+            calc(2 * var(--default-padding)) 
+            calc(3 * var(--default-padding)) 
+            calc(2 * var(--default-padding));
         background: linear-gradient(
             to right bottom,
             rgba($color-tertiary-light,1),
             rgba($color-primary-light,1));
+        transform: scale(1.1);
+        border-radius: calc(2 * var(--default-border-radius));
+        box-shadow: var(--shadow-small-dark);
+
+        &:hover {
+            
+            .logo {
+                letter-spacing: 2px;
+            }
+        }
+        & .form__input {
+            border-radius: 5rem;
+        }
     }
+
 }

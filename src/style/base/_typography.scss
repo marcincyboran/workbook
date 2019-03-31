@@ -61,10 +61,10 @@
 
 .paragraph {
     font-size: 1.2rem;
-}
 
-.text-bold {
-    font-weight: 600;
+    &--big {
+        font-size: 1.4rem;
+    }
 }
 
 .icon {
@@ -91,10 +91,10 @@
     border-radius: 5rem; // overkill
     border: 2px solid currentColor;
     text-decoration: none;
-    color: var(--color-grey-dark-2);
+    color: var(--color-white);
     box-shadow: var(--shadow-small-middle);
     cursor: pointer;
-    transition: all .1s;
+    transition: all .2s;
 
     &:hover { 
         box-shadow: var(--shadow-small-dark);
@@ -112,7 +112,14 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        & .icon { margin-left: 1rem; }
+
+        & span { margin-right: 1rem; }
+
+        & .icon {
+            &.rotate90 { transform: rotate(90deg) }
+            &.rotate180 { transform: rotate(180deg) }
+            &.rotate270 { transform: rotate(270deg) }
+        }
     }
 
     &--big {
@@ -147,19 +154,18 @@
             border: 2px solid var(--color-tertiary);        
         }
     }
-
 }
 
 .u-list {
     list-style: none;
-    display: inline-flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 
     &__item {
         position: relative;
         flex: 0 1 calc(50% - 1rem);
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         line-height: 1.4;
         padding-left: 2rem;
         margin-bottom: .5rem;
@@ -167,31 +173,44 @@
         & a {
             text-decoration: none;
             color: inherit;
-
+            
             &:hover,
             &:active {
                 color: var(--color-primary);
             }
         }
+        
         &--normal { 
             padding-left: 3rem;
             flex: 0 1 100%;
             margin-bottom: 1rem;
         }
-
+        
         & .icon {
             position: absolute;
             left: 0;
             top: 2px;
             transform: rotate(-90deg);
             fill: var(--color-primary);
-
-            &--normal { 
-                transform: rotate(0);
-            }
+            
+            &--normal { transform: rotate(0); }
+            &--primary { fill: var(--color-primary); }
             &--secondary { fill: var(--color-secondary); }
+            &--tertiary { fill: var(--color-tertiary); }
+        }
+        
+    }
+    &--reversed &__item {
+        padding-left: 0;
+        padding-right: 3rem;
+
+        & .icon {
+            left: unset;
+            right: 0;
+            transform: rotate(90deg);
         }
     }
+
 }
 
 .adress-details {

@@ -1,22 +1,23 @@
 .login {
     display: flex;
-    background-color: var(--color-white);
-    border-radius: calc(2 * var(--default-border-radius));
-    box-shadow: var(--shadow-small-middle);
-
+    
     &-left,
     &-right {
         flex: 0 1 30%;
+        position: relative;
         padding: calc(2 * var(--default-padding));
-
+        box-shadow: var(--shadow-small-middle);
+        border-radius: calc(2 * var(--default-border-radius));
+        background-color: var(--color-white);
     }
     &-left {
         padding-right: calc(3 * var(--default-padding));
-    
+        &:hover { animation: loginChangeLeft .8s forwards  ; }
     }
     &-right {
         padding-left: calc(3 * var(--default-padding));
-    } 
+        &:hover { animation: loginChangeRight .8s forwards; }
+    }
 
     &-center {
         flex: 1;
@@ -30,11 +31,11 @@
             rgba($color-tertiary-light,1),
             rgba($color-primary-light,1));
         transform: scale(1.1);
-        border-radius: calc(2 * var(--default-border-radius));
+        border-radius:  calc(2 * var(--default-border-radius));
         box-shadow: var(--shadow-small-dark);
+        z-index: 1;
 
         &:hover {
-            
             .logo {
                 letter-spacing: 2px;
             }
@@ -43,5 +44,4 @@
             border-radius: 5rem;
         }
     }
-
 }

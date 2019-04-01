@@ -7,6 +7,7 @@ export default async function (id = 1) {
     console.log('Offer Ctrl working!');
     
     base.clearContent();
+    base.showHeader();
     base.renderLoader();
 
     const offer = new Offer(state.offerId || id);

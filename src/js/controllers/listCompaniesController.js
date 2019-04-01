@@ -7,6 +7,7 @@ import state from '../models/state';
 export default async function () {
 
     base.clearContent();
+    base.showHeader();
 
     const companies = new Companies();
 

@@ -9,6 +9,7 @@ export default async function () {
 
     // Clear view
     base.clearContent();
+    base.showHeader();
 
     // Prepare list
     listView.renderWrapper();

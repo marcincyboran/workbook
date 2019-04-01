@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export const el = {
     topNavigation: document.querySelector('.top-nav'),
+    headerBottom: document.querySelector('.header__bottom'),
     content: document.querySelector('.content'),
 };
 
@@ -18,7 +19,8 @@ export const elStr = {
     registerContentCompany: 'register__content--active-company',
     registerNavButton: 'register__nav-button',
     registerNavActive: 'register__nav-button--active',
-    formBlock: 'form__block'
+    formBlock: 'form__block',
+    loginForm: 'login__form'
 };
 
 export function clearContent() {
@@ -63,6 +65,10 @@ export function formatDate (rawDate) {
     }
     return `${(date.getDate() < 10) ? '0' + date.getDate() : date.getDate()}.${(date.getMonth() < 10) ? '0' + date.getMonth() : date.getMonth()}.${date.getFullYear()}`
 };
+
+export function hideHeader() { el.headerBottom.classList.add('u-hidden') };
+
+export function showHeader() { el.headerBottom.classList.remove('u-hidden') };
 
 const getTime = async () => {
     const result = await axios('/api/base/time');

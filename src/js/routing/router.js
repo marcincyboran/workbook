@@ -16,11 +16,13 @@ export const navigate = (pathName) => {
     window.dispatchEvent(event);
 };
 
-el.topNavigation.addEventListener('click', (e) => {
+document.addEventListener('click', (e) => {
     // sprawdzić czy można queryselectorall(top-nav a).click bez tego na dole
-    if (e.target.getAttribute('href')) {
+    if (e.target.getAttribute('data-nav') || (e.target.closest('a') !== null) && (e.target.closest('a').getAttribute('data-nav') !== null)) {
+        const href = e.target.getAttribute('href') || e.target.closest('a').getAttribute('href');
+        console.log('navigation');
         e.preventDefault();
-        navigate(e.target.getAttribute('href'));    
+        navigate(href);
     }
     e.stopPropagation();
 });

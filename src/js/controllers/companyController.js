@@ -5,6 +5,7 @@ import state from '../models/state';
 
 export default async function (id = 1) {
     base.clearContent();
+    base.showHeader();
     base.renderLoader();
 
     console.info(state);

@@ -1,5 +1,5 @@
 .header {
-    margin-top: calc(2 * var(--default-bar-height));
+    padding-top: var(--default-bar-height);
     
     &__top {
         position: fixed;
@@ -12,7 +12,6 @@
     }
 
     &__bottom {
-        margin-top: calc(-1 * var(--default-bar-height));
         height: 45rem;
         padding-top: 8rem;
         position: relative;

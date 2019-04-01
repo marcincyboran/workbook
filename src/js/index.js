@@ -7,6 +7,7 @@ import companyCtrl from './controllers/companyController';
 import offersCtrl from './controllers/listOffersController';
 import offerCtrl from './controllers/offerController';
 import registrationCtrl from './controllers/registrationController';
+import loginCtrl from './controllers/loginController';
 
 window.onpopstate = (e) => {
     loadController();
@@ -40,16 +41,16 @@ async function loadController() {
         case '/registration':
             registrationCtrl();
             break;
+        case '/login':
+            loginCtrl();
+            break;
         default:
             offersCtrl();
             break;
     }
 };
 
-// offersCtrl();
-// registrationCtrl();
-
-
+offersCtrl();
 
 // TODO
 

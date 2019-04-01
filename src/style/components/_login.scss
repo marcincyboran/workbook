@@ -12,11 +12,11 @@
     }
     &-left {
         padding-right: calc(3 * var(--default-padding));
-        &:hover { animation: loginChangeLeft .8s forwards  ; }
+        &:hover { animation: loginChangeLeft .8s .5s forwards  ; }
     }
     &-right {
         padding-left: calc(3 * var(--default-padding));
-        &:hover { animation: loginChangeRight .8s forwards; }
+        &:hover { animation: loginChangeRight .8s .5s forwards; }
     }
 
     &-center {
@@ -42,6 +42,10 @@
         }
         & .form__input {
             border-radius: 5rem;
+        }
+        & .form__input-error {
+            color: var(--color-secondary-dark);
+            text-align: center;
         }
     }
 }

@@ -4,6 +4,7 @@
 
     // Wyliczyć !
     min-height: calc(100vh - 14rem - 45rem - 7rem - 12rem);
+    min-height: 65vh;
 
     & > *:not(:last-child) {
         margin-bottom: var(--default-vertical-gap);

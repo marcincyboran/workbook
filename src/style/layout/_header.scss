@@ -23,6 +23,7 @@
         background-size: cover;
         background-position: center center;
         box-shadow: var(--shadow-medium-dark);
+        overflow: hidden;
 
         @supports (background-blend-mode: screen) {
             background-image:   

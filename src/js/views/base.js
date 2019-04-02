@@ -55,7 +55,7 @@ export function removeLoader() {
     loader.parentNode.removeChild(loader);
 };
 
-export function formatDate (rawDate) {
+export function formatDate(rawDate) {
     const date = new Date(rawDate);
 
     // Get time from server and store it in state
@@ -66,7 +66,25 @@ export function formatDate (rawDate) {
     return `${(date.getDate() < 10) ? '0' + date.getDate() : date.getDate()}.${(date.getMonth() < 10) ? '0' + date.getMonth() : date.getMonth()}.${date.getFullYear()}`
 };
 
-export function hideHeader() { el.headerBottom.classList.add('u-hidden') };
+export function hideHeader() {
+    el.headerBottom.classList.add('u-hidden');
+    
+    // const animEl = el.headerBottom;
+    // let height = getComputedStyle(animEl).getPropertyValue('height').replace('px', '');
+
+    // const id = setInterval(frame, 5);
+
+    // function frame() {
+    //     if (height == 0) {
+    //         clearInterval(id);
+    //     } else {
+    //         height = height - 10;
+    //         console.log(height);
+    //         animEl.style.height = `${height}px`;
+    //     }
+    // }
+
+};
 
 export function showHeader() { el.headerBottom.classList.remove('u-hidden') };
 

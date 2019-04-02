@@ -6,7 +6,7 @@ import state from '../models/state';
 
 export default function () {
     base.clearContent();
-    // base.hideHeader();
+    base.hideHeader();
     base.renderLoader();
 
     base.removeLoader();

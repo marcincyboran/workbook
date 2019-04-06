@@ -17,8 +17,8 @@
         position: relative;
         background-image:   
             linear-gradient(to bottom,
-                rgba($color-grey-dark-1,.35),
-                rgba($color-grey-dark-1,.35)),
+                rgba($color-gray-dark-1,.35),
+                rgba($color-gray-dark-1,.35)),
             url(../../assets/imgs/header.jpg);
         background-size: cover;
         background-position: center center;
@@ -28,8 +28,8 @@
         @supports (background-blend-mode: screen) {
             background-image:   
                 linear-gradient(to bottom,
-                    rgba($color-grey-dark-1,.35),
-                    rgba($color-grey-dark-1,.35)),
+                    rgba($color-gray-dark-1,.35),
+                    rgba($color-gray-dark-1,.35)),
                 url(../../assets/imgs/header.jpg);
             background-blend-mode: darken;
         }
@@ -41,7 +41,7 @@
         font-size: 4.5rem;
         font-weight: 300;
         letter-spacing: 1px;
-        color: var(--color-grey-light-1);
+        color: var(--color-gray-light-1);
         margin-bottom: 8rem;
     }
 

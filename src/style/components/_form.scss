@@ -20,7 +20,7 @@
         line-height: 1;
         letter-spacing: 1px;
         margin-bottom: .8rem;
-        color: var(--color-grey-dark-3);
+        color: var(--color-gray-dark-3);
     
         &--checkbox {
             line-height: 1.4;
@@ -42,7 +42,7 @@
         left: 0;
         width: 3.2rem;
         height: 1.6rem;
-        border: 2px solid var(--color-grey-light-4);
+        border: 2px solid var(--color-gray-light-4);
         border-radius: 3rem;
         transition: border .3s ease-in-out;
 
@@ -57,7 +57,7 @@
             width: 1.4rem;
             border-radius: 3rem;
             transform: translateY(-50%);
-            background-color: var(--color-grey-light-4);
+            background-color: var(--color-gray-light-4);
             transition: all .3s ease-in-out;
         }
     }

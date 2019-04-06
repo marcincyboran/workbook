@@ -99,7 +99,7 @@ const renderCompany = company => {
 export const renderAside = aside => {
     console.log(aside);
     const markup = `
-        <aside class="side-nav">
+        <aside class="side-nav noselect">
             <input class="side-nav__switcher" type="checkbox" id="toggle-list">
             <section class="side-nav__list-box">
                 <label class="side-nav__list-label" for="toggle-list">Więcej...</label>

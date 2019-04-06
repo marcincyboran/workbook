@@ -1,5 +1,5 @@
 .footer {
-    background-color: var(--color-grey-light-4);
+    background-color: var(--color-gray-light-4);
     
     &-inner {
         padding: var(--default-vertical-gap) 0;
@@ -15,7 +15,7 @@
 
     &__copyrights > * {
         display: block;
-        color: var(--color-grey-light-1);
+        color: var(--color-gray-light-1);
         font-size: 1.4rem;
         font-weight: 600;
         letter-spacing: 1px;
@@ -33,7 +33,7 @@
         
         &-item {
             font-size: 1.4rem;
-            color: var(--color-grey-dark-1);
+            color: var(--color-gray-dark-1);
             display: inline-flex;
             justify-content: center;
             align-items: center;
@@ -48,7 +48,7 @@
             transition: all .6s;
             
             &--noactive {
-                color: var(--color-grey-light-4) !important;
+                color: var(--color-gray-light-4) !important;
                 cursor: default;
             }
 

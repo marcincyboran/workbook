@@ -19,12 +19,12 @@ body *::-webkit-scrollbar-track {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--color-grey-dark-4);
+    background: var(--color-gray-dark-4);
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-grey-dark-3);
+    background: var(--color-gray-dark-3);
 }
 
 // ::-webkit-scrollbar-thumb:window-inactive {}

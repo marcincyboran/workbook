@@ -59,7 +59,7 @@ export const renderSection = (form) => {
                                 </label>
                             </div>
                         </div>
-                        <div class="form__group form__group--submit u-text-right">
+                        <div class="form__group form__group--submit u-text-center">
                             <input type="submit" class="button button--secondary button--big" value="Zarejestruj">
                         </div>
                     </form>
@@ -119,7 +119,7 @@ export const renderSection = (form) => {
                                 </label>
                             </div>
                         </div>
-                        <div class="form__group form__group--submit u-text-right">
+                        <div class="form__group form__group--submit u-text-center">
                             <input type="submit" class="button button--tertiary button--big" value="Zarejestruj">
                         </div>
                     </form>

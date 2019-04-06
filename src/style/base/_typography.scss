@@ -1,12 +1,9 @@
 .heading-primary {
     font-size: 2.4rem;
     font-weight: 300;
-    color: var(--color-grey-dark-2);
+    color: var(--color-gray-dark-2);
 
-    &--bold {
-        font-weight: 400;
-    }
-
+    &--bold { font-weight: 400; }
     &--primary { color: var(--color-primary); }
     &--white { color: var(--color-white); }
 }
@@ -14,13 +11,12 @@
 .heading-secondary {
     font-size: 1.8rem;
     font-weight: 400;
-    color: var(--color-grey-dark-2);
+    color: var(--color-gray-dark-2);
 
-    &--white {
-        color: var(--color-white);
-    }
-
+    &--white { color: var(--color-white); }
     &--primary { color: var(--color-primary); }
+    &--secondary { color: var(--color-secondary); }
+    &--bold { font-weight: 600; }
 
     &--underline { position: relative; }
     &--underline::before {
@@ -32,10 +28,6 @@
         width: 7rem;
         border-bottom: 3px solid var(--color-primary);
     }
-
-    &--bold {
-        font-weight: 600;
-    }
 }
 
 .tag {
@@ -43,28 +35,25 @@
     font-size: 1.1rem;
     padding: .4em .8rem;
     margin-bottom: .4rem;
-    background-color: var(--color-grey-light-1);
+    background-color: var(--color-gray-light-1);
     border-radius: .4rem;
     box-shadow: var(--shadow-tag);
     transition: all .3s;
 
     &:hover {
         cursor: pointer;
-        background-color: var(--color-grey-light-3);
-        color: var(--color-grey-dark-1);
+        background-color: var(--color-gray-light-3);
+        color: var(--color-gray-dark-1);
     }
 
-    &:not(:last-of-type) {
-        margin-right: .6rem;
-    }
+    &:not(:last-of-type) { margin-right: .6rem; }
 }
 
 .paragraph {
     font-size: 1.2rem;
 
-    &--big {
-        font-size: 1.4rem;
-    }
+    &--big { font-size: 1.4rem; }
+    &--bold {font-weight: 600; }
 }
 
 .icon {
@@ -73,16 +62,26 @@
     fill: currentColor;
 
     &--primary { fill: var(--color-primary); }
-    &--blank { fill: var(--color-grey-light-4); }
+    &--blank { fill: var(--color-gray-light-4); }
 
     &--small {
         width: 1.5rem;
         height: 1.5rem;
     }
+
+    &--big {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    &--mr {
+        margin-right: calc(var(--default-padding) / 2);
+    }
 }
 
 .button {
     position: relative;
+    display: inline-block;
     padding: .6rem 1.2rem;
     font-size: 1.4rem;
     font-weight: 600;
@@ -96,6 +95,7 @@
     cursor: pointer;
     top: 0;
     transition: all .2s;
+    @extend .noselect;
 
     &:hover { 
         box-shadow: var(--shadow-small-dark);
@@ -218,7 +218,7 @@
     font-size: 1.4rem;
     padding-left: 1rem;
     transition: max-height .3s;
-
+    
     & > address {
         font-style: normal;
     }

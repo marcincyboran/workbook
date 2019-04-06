@@ -9,10 +9,10 @@
 
 
     &__input {
-        background-color: var(--color-grey-light-1);
+        background-color: var(--color-gray-light-1);
         flex-basis: 40%;
         padding: 1rem 1.75rem;
-        color: var(--color-grey-dark-2);
+        color: var(--color-gray-dark-2);
 
         &:first-child {
             position: relative;
@@ -27,7 +27,7 @@
         align-items: center;
         flex-grow: 1;
         font-size: 1.6rem;
-        color: var(--color-grey-light-1);
+        color: var(--color-gray-light-1);
         font-weight: 600;
         letter-spacing: 1px;
         border-top-right-radius: 3rem;
@@ -53,9 +53,9 @@
     }
 
     &__pipe {       
-        border-top: .8rem solid var(--color-grey-light-1);
-        border-bottom: .8rem solid var(--color-grey-light-1);
-        background-color: var(--color-grey-light-4);
+        border-top: .8rem solid var(--color-gray-light-1);
+        border-bottom: .8rem solid var(--color-gray-light-1);
+        background-color: var(--color-gray-light-4);
         width: 1px;
     }
 }

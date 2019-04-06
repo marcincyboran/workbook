@@ -2,15 +2,16 @@ import * as base from '../views/base';
 import * as registrationView from '../views/registration';
 import Registration from '../models/Registration';
 import Form from '../models/Form';
+import state from '../models/state';
 
-export default function () {
+export default function (form = 'user') {
     console.log('Register controller works');
 
     base.clearContent();
     // base.hideHeader();
     base.renderLoader();
 
-    registrationView.renderSection();
+    registrationView.renderSection(form);
     base.removeLoader();
 
     addEvents();

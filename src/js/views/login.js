@@ -20,7 +20,7 @@ export const renderLogin = () => {
                         Oceniaj usługi
                     </li>
                 </ul>
-                <a href="/registration" data-nav="1" class="button button--secondary button--icon" data-company="1">
+                <a href="/registration:user" data-nav="1" class="button button--secondary button--icon" data-company="1">
                     <span>Zarejsetruj</span>
                     <svg class="icon"><use href="./assets/svgs/sprite.svg#icon-magnifying-glass"></use></svg>
                 </a>
@@ -67,7 +67,7 @@ export const renderLogin = () => {
                         Przedstawiaj projkety
                     </li>
                 </ul>
-                <a href="/registration" data-nav="1" class="button button--secondary button--icon" data-company="1">
+                <a href="/registration:company" data-nav="1" class="button button--secondary button--icon" data-company="1">
                     <span>Zarejsetruj</span>
                     <svg class="icon"><use href="./assets/svgs/sprite.svg#icon-magnifying-glass"></use></svg>
                 </a>

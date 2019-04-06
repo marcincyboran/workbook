@@ -39,7 +39,7 @@ async function loadController() {
             offerCtrl(state.param);
             break;
         case '/registration':
-            registrationCtrl();
+            registrationCtrl(state.param);
             break;
         case '/login':
             loginCtrl();

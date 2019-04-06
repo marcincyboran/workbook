@@ -1,13 +1,14 @@
 import * as base from './base';
 
-export const renderSection = () => {
+export const renderSection = (form) => {
+    const isUser = (form === 'user') ? true : false;
     const markup = `
         <section class="register">
             <div class="register__nav">
-                <a class="register__nav-button register__nav-button--active" data-form="user">Użytkownik</a>
-                <a class="register__nav-button" data-form="company">Firma</a>
+                <a class="register__nav-button ${ (isUser) ? base.elStr.registerNavActive : '' }" data-form="user">Użytkownik</a>
+                <a class="register__nav-button ${ (!isUser) ? base.elStr.registerNavActive : '' }" data-form="company">Firma</a>
             </div>
-            <div class="register__content">
+            <div class="register__content ${ (!isUser) ? base.elStr.registerContentCompany : '' }">
                 <div class="register__block register__block--user">
                     <div class="register__bg-img register__bg-img--user">&nbsp;</div>
                     <form action="#user" data-form="user" class="form form--user">
